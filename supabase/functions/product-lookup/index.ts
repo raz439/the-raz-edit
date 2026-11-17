@@ -13,10 +13,7 @@ const stores=[
   {domain:'arket.com',name:'ARKET'}
 ];
 const safeHost=(host,domain)=>host===domain||host.endsWith('.'+domain);
-const meta=(html,key)=>{for(const attrs of [
-  new RegExp('<meta\\s+[^>]*(?:property|name)\\s*=\\s*["\\\']'+key+'["\\\'][^>]*>','i'),
-  new RegExp('<meta\\s+[^>]*content\\s*=\\s*["\\\'][^>]*["\\\'][^>]*(?:property|name)\\s*=\\s*["\\\']'+key+'["\\\'][^>]*>','i')
-]){const tag=html.match(attrs)?.[0]||'';const m=tag.match(/content\s*=\s*["']([^"']+)["']/i);if(m)return m[1]}return ''};
+const meta=(html,key)=>{const tags=html.match(/<meta\\b[^>]*>/gi)||[];for(const tag of tags){const attrs={};for(const match of tag.matchAll(/([\\w:-]+)\\s*=\\s*(?:"([^"]*)"|'([^']*)')/g))attrs[match[1].toLowerCase()]=match[2]??match[3]??'';if(attrs.property===key||attrs.name===key)return attrs.content||''}return ''};
 const decode=s=>s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&#x27;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').trim();
 Deno.serve(async req=>{
  if(req.method==='OPTIONS')return new Response('ok',{headers:cors});
