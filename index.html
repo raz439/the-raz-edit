@@ -18,8 +18,41 @@ const DEFAULT_CATEGORIES=['Pieces worth sharing','חולצות','סריגים','
 const $=id=>document.getElementById(id);
 const element=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x};
 const favorites=new Set(JSON.parse(localStorage.getItem('raz-edit-favorites')||'[]').map(String));
-async function load(){
+const prefsKey='raz-edit-category-prefs-v1',welcomeKey='raz-edit-category-welcome-v1';
+const isAdminPage=new URLSearchParams(location.search).has('admin');
+let selectedCategories=new Set(JSON.parse(localStorage.getItem(prefsKey)||'[]'));
+let draftCategories=new Set();
+function visibleCategories(){return [...new Set([...DEFAULT_CATEGORIES,...data.categories])]}
+function openCategoryWelcome(){
+ if(isAdminPage)return;
+ draftCategories=new Set(selectedCategories);
+ const host=$('welcome-options');host.replaceChildren();
+ visibleCategories().forEach(c=>{
+  const btn=element('button','welcome-option'+(draftCategories.has(c)?' selected':''),c);
+  btn.type='button';btn.setAttribute('aria-pressed',String(draftCategories.has(c)));
+  btn.onclick=()=>{draftCategories.has(c)?draftCategories.delete(c):draftCategories.add(c);refreshWelcome()};
+  host.append(btn);
+ });
+ refreshWelcome();$('welcome-overlay').classList.remove('hidden');
+}
+function refreshWelcome(){
+ Array.from($('welcome-options').children).forEach(b=>{const active=draftCategories.has(b.textContent);b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active))});
+}
+$('welcome-all').onclick=()=>{draftCategories=new Set(visibleCategories());refreshWelcome()};
+$('welcome-continue').onclick=()=>{
+ if(!draftCategories.size){alert('בחרי לפחות קטגוריה אחת');return}
+ selectedCategories=new Set(draftCategories);
+ localStorage.setItem(prefsKey,JSON.stringify([...selectedCategories]));
+ localStorage.setItem(welcomeKey,'yes');
+ $('welcome-overlay').classList.add('hidden');
+ cat=selectedCategories.size===1?[...selectedCategories][0]:'';
  draw();
+};
+$('change-categories').onclick=openCategoryWelcome;
+async function load(){
+ data.categories=visibleCategories();
+ draw();
+ if(!isAdminPage&&localStorage.getItem(welcomeKey)!=='yes')openCategoryWelcome();
  client=buildClient();
  if(client){try{const {data:record,error}=await client.from('board_content').select('content').eq('id',1).maybeSingle();if(error)throw error;if(record?.content){data=normalize(record.content);boardLoaded=true;draw();return}}catch(e){console.warn('Board database load failed',e)}}
  try{const r=await fetch('data.json?ts='+Date.now());if(r.ok){data=await r.json();normalize(data);boardLoaded=true;draw();return}}catch(e){}
@@ -28,7 +61,7 @@ async function load(){
 function unique(key){return [...new Set(data.products.flatMap(p=>key==='colors'?(p.colors||[]):[p[key]]).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),'he'))}
 function options(id,values,all){const node=$(id),value=node.value;node.replaceChildren(new Option(all,''));values.forEach(v=>node.append(new Option(v,v)));node.value=values.includes(value)?value:''}
 function draw(){
- const list=$('collections');list.replaceChildren();[['','כל הפריטים'],...data.categories.map(x=>[x,x])].forEach(([value,label])=>{const b=element('button','pill'+(cat===value?' active':''),label);b.onclick=()=>{cat=value;$('type').value='';draw()};list.append(b)});
+ const list=$('collections');list.replaceChildren();[['','כל הפריטים'],...data.categories.filter(x=>!selectedCategories.size||selectedCategories.has(x)).map(x=>[x,x])].forEach(([value,label])=>{const b=element('button','pill'+(cat===value?' active':''),label);b.onclick=()=>{cat=value;$('type').value='';draw()};list.append(b)});
  options('store',unique('store'),'כל החנויות');options('type',cat===null?[]:(data.subcategories[cat]||[]),'כל תתי־הקטגוריות');options('color',unique('colors'),'כל הצבעים');
  const q=$('search').value.trim().toLowerCase(),items=cat===null?[]:data.products.filter(p=>(!cat||(cat==='Pieces worth sharing'?p.featured!==false:p.category===cat)||(!p.category&&cat==='Pieces worth sharing'))&&(!$('store').value||p.store===$('store').value)&&(!$('type').value||p.subcategory===$('type').value)&&(!$('color').value||(p.colors||[]).includes($('color').value))&&(!faveOnly||favorites.has(String(p.id)))&&(p.name+' '+p.store+' '+(p.type||'')+' '+(p.subcategory||'')+' '+(p.colors||[]).join(' ')).toLowerCase().includes(q));
  $('heading').textContent=cat===null?'בחרי קטגוריה כדי להתחיל':(cat||'All the pieces');$('count').textContent=items.length+' / '+data.products.length+' PICKS';const grid=$('grid');grid.replaceChildren();if(!items.length)grid.append(element('p','empty',cat===null?'בחרי קטגוריה למעלה כדי לראות את הפריטים ♡':'אין פריטים בקטגוריה הזאת עדיין ♡'));
