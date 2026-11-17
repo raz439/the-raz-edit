@@ -1,0 +1,119 @@
+{
+  "products": [
+    {
+      "id": "raz-20261117-216140909",
+      "name": "ג׳קט קלואי",
+      "store": "רנואר",
+      "url": "https://renuar.co.il/products/216140909",
+      "price": "149.90 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט",
+      "colors": [
+        "אבן"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-w845710008",
+      "name": "מעיל טרנץ׳ קצר – YANGA",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/w845710008?color=7",
+      "price": "199.95 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "מעיל טרנץ׳ קצר",
+      "colors": [
+        "אפור בהיר"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-w846370018",
+      "name": "מעיל טרנץ׳ ארוך בשילוב חגורה – YANGA",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/w846370018?color=17762",
+      "price": "214.95 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "מעיל טרנץ׳ ארוך",
+      "colors": [
+        "אוף וויט"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-r478915200",
+      "name": "מעיל דמוי פרווה – AMERICAN EAGLE",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/r478915200?color=9174",
+      "price": "274.95 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי פרווה",
+      "colors": [
+        "חום כהה"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-r602330007",
+      "name": "מעיל ארוך – MANGO",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/r602330007?color=22",
+      "price": "194.97 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "מעיל ארוך",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-217162028",
+      "name": "מעיל רובי",
+      "store": "רנואר",
+      "url": "https://renuar.co.il/products/217162028",
+      "price": "259.90 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט",
+      "colors": [
+        "אדום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-217161582",
+      "name": "מעיל טרנץ׳ משובץ",
+      "store": "רנואר",
+      "url": "https://renuar.co.il/products/217161582",
+      "price": "259.90 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט משובץ",
+      "colors": [
+        "משובץ",
+        "חום",
+        "שחור",
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    }
+  ]
+}
