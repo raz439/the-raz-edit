@@ -58,5 +58,5 @@ $('publish').onclick=async()=>{if(!client||!await checkAdmin()){showMessage('נ�
 $('invite-user').onclick=async()=>{if(!client||!await checkAdmin()){$('invite-status').textContent='נדרשת התחברות מנהלת';return}const email=$('invite-email').value.trim();if(!email){$('invite-status').textContent='יש להזין אימייל';return}const {data,error}=await client.functions.invoke('invite-user',{body:{email}});$('invite-status').textContent=error?'ההזמנה נכשלה: '+error.message:(data?.ok?'ההזמנה נשלחה ♡':data?.error||'לא ניתן לשלוח את ההזמנה')};
 if(new URLSearchParams(location.search).has('admin')){window.addEventListener('load',async()=>{client=buildClient();if(client)await showAdmin();else showMessage('יש להגדיר תחילה Supabase בקובץ supabase-config.js')})}
 
-load();
+document.addEventListener('DOMContentLoaded',load);
 </script></body></html>
