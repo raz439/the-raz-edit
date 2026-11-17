@@ -19,6 +19,7 @@ const $=id=>document.getElementById(id);
 const element=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x};
 const favorites=new Set(JSON.parse(localStorage.getItem('raz-edit-favorites')||'[]').map(String));
 async function load(){
+ draw();
  client=buildClient();
  if(client){try{const {data:record,error}=await client.from('board_content').select('content').eq('id',1).maybeSingle();if(error)throw error;if(record?.content){data=normalize(record.content);boardLoaded=true;draw();return}}catch(e){console.warn('Board database load failed',e)}}
  try{const r=await fetch('data.json?ts='+Date.now());if(r.ok){data=await r.json();normalize(data);boardLoaded=true;draw();return}}catch(e){}
