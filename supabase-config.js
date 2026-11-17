@@ -1,0 +1,1 @@
+// Public browser configuration. Set these only after creating a Supabase project.\nwindow.RAZ_SUPABASE_CONFIG = {url:'', publishableKey:''};\n
