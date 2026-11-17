@@ -20,3 +20,10 @@ This branch **is not deployed**. The published Netlify site and production branc
 8. Merge and trigger ONE production deployment only after testing.
 
 **Important:** A login form cannot provide real permissions on a static site by itself. Permission enforcement comes from database RLS and the Edge Function.
+
+## Automatic product details from a pasted shopping link
+The Admin form now offers **זיהוי פרטי המוצר**. On link paste/change it invokes the admin-only `product-lookup` Edge Function, which attempts to read public page metadata (title, shop, image) from supported fashion store domains. Stores frequently block bots, so this is best-effort, **not guaranteed**.
+- Deploy `supabase/functions/product-lookup/index.ts` to Edge Functions under **product-lookup**, with legacy Verify JWT **OFF**, because this project uses a publishable key. The function enforces logged-in Admin role itself using the provided user JWT.
+- If lookup fails, fill in the name, store, and image manually. Image can be replaced with a direct image URL, and a separate **תמונה חלופית** fallback is used when the primary image fails to load.
+- Never put private API keys into frontend code. No product extraction bypass should be used against unsupported or blocked websites.
+- Publishing product data itself only updates the Supabase database; deploying new app code is still a Netlify deployment.
