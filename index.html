@@ -87,6 +87,10 @@ async function mergeCuratedAdditions(){
    if(asos)return 'asos:'+asos[1];
    const hm=url.match(/productpage\.(\d+)\.html/);
    if(hm)return 'hm:'+hm[1];
+   const stradi=url.match(/-l(\d+)/);
+   if(stradi&&/stradivarius\.com/.test(url)){const variant=url.match(/[?&]colorId=([^&#]+)/);return 'stradivarius:'+stradi[1]+':'+(variant?variant[1]:'base')}
+   const bershka=url.match(/-c0p(\d+)\.html/);
+   if(bershka){const variant=url.match(/[?&]colorId=([^&#]+)/);return 'bershka:'+bershka[1]+':'+(variant?variant[1]:'base')}
    const zara=url.match(/-p(\d+)\.html/);
    if(zara)return 'zara:'+zara[1];
    return url.split('#')[0].split('?')[0];
