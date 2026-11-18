@@ -14,7 +14,28 @@
 <script>
 'use strict';
 const repo='raz439/the-raz-edit',initial='https://raw.githubusercontent.com/raz439/the-raz-edit/25365b3583ea363834f49a9eff7cc6ce0a1fe597/index.html';
-const DEFAULT_CATEGORIES=['חולצות','סריגים','מכנסיים','ג׳קטים ומעילים','שמלות','חצאיות','נעליים','תיקים','אקססוריז','סטים'];const DEFAULT_SUBCATEGORIES={'חולצות':['ליום יום','ליציאה','לעבודה','מכופתרות','טופים'],'סריגים':['סוודרים','קרדיגנים','וסט סריג'],'מכנסיים':['ג׳ינסים','מחויטים','קצרים','קז׳ואל'],'ג׳קטים ומעילים':['בלייזרים','מעילים','ג׳קטים'],'שמלות':['יומיומיות','ליציאה','לאירועים'],'נעליים':['סניקרס','מגפיים','עקבים','שטוחות'],'אקססוריז':['תכשיטים','חגורות','צעיפים','משקפיים']};function inferCategory(p){const t=String(p.type||'').toLowerCase(),n=String(p.name||'').toLowerCase(),v=t+' '+n;if(/סוודר|סריג|קרדיגן|knit|sweater|cardigan/.test(v))return 'סריגים';if(/חולצ|shirt|blouse|top|tee/.test(v))return 'חולצות';if(/מכנס|ג׳ינס|גינס|trouser|jeans|pants/.test(v))return 'מכנסיים';if(/ג׳קט|מעיל|בלייזר|jacket|coat|blazer/.test(v))return 'ג׳קטים ומעילים';if(/נעל|סניקר|מגף|shoe|sneaker|boot/.test(v))return 'נעליים';if(/שמלה|dress/.test(v))return 'שמלות';if(/חצאית|skirt/.test(v))return 'חצאיות';if(/תיק|bag/.test(v))return 'תיקים';if(/תכשיט|חגורה|צעיף|accessor|jewelry/.test(v))return 'אקססוריז';return 'חולצות'}function normalize(d){d.categories=[...new Set([...DEFAULT_CATEGORIES,...(Array.isArray(d.categories)?d.categories:[]).filter(x=>x!=='Pieces worth sharing')])];if(!d.subcategories||typeof d.subcategories!=='object')d.subcategories=structuredClone(DEFAULT_SUBCATEGORIES);delete d.subcategories['Pieces worth sharing'];d.products=Array.isArray(d.products)?d.products:[];d.products.forEach(p=>{if(!p.category||p.category==='Pieces worth sharing')p.category=inferCategory(p)});return d}let data=normalize({categories:DEFAULT_CATEGORIES,products:[]}),dirty=false,cat=null,faveOnly=false,boardLoaded=false;let client=null,currentAdmin=false;
+const DEFAULT_CATEGORIES=['חולצות','סריגים','מכנסיים','ג׳קטים ומעילים','שמלות','חצאיות','נעליים','תיקים','אקססוריז','סטים'];const DEFAULT_SUBCATEGORIES={'חולצות':['ליום יום','ליציאה','לעבודה','מכופתרות','טופים'],'סריגים':['סוודרים','קרדיגנים','וסט סריג'],'מכנסיים':['ג׳ינסים','מחויטים','קצרים','קז׳ואל'],'ג׳קטים ומעילים':['בלייזרים','מעילים','ג׳קטים'],'שמלות':['יומיומיות','ליציאה','לאירועים'],'נעליים':['סניקרס','מגפיים','עקבים','שטוחות'],'אקססוריז':['תכשיטים','חגורות','צעיפים','משקפיים']};function inferCategory(p){const t=String(p.type||'').toLowerCase(),n=String(p.name||'').toLowerCase(),v=t+' '+n;if(/סוודר|סריג|קרדיגן|knit|sweater|cardigan/.test(v))return 'סריגים';if(/חולצ|shirt|blouse|top|tee/.test(v))return 'חולצות';if(/מכנס|ג׳ינס|גינס|trouser|jeans|pants/.test(v))return 'מכנסיים';if(/ג׳קט|מעיל|בלייזר|jacket|coat|blazer/.test(v))return 'ג׳קטים ומעילים';if(/נעל|סניקר|מגף|shoe|sneaker|boot/.test(v))return 'נעליים';if(/שמלה|dress/.test(v))return 'שמלות';if(/חצאית|skirt/.test(v))return 'חצאיות';if(/תיק|bag/.test(v))return 'תיקים';if(/תכשיט|חגורה|צעיף|accessor|jewelry/.test(v))return 'אקססוריז';return 'חולצות'}function canonicalColor(value){
+ const c=String(value||'').trim().toLowerCase().replace(/[׳’']/g,"'");
+ if(!c)return '';
+ if(/משובץ|מפוספס|דוגמ|מנומר|צבעוני/.test(c))return '';
+ if(/חום|קאמל|camel|taupe|טאופ|שוקולד|מינק|mink|tan\b|brown|מוקה/.test(c))return 'חום';
+ if(/אפור|אפרפר|גרפיט|פחם|charcoal|grey|gray/.test(c))return 'אפור';
+ if(/בז|אבן|אוטמיל|oatmeal|beige|stone|sand/.test(c))return 'בז׳';
+ if(/אוף\s?וויט|off.white|לבן|white/.test(c))return 'לבן';
+ if(/שמנת|קרם|cream|ivory/.test(c))return 'שמנת';
+ if(/כחול|נייבי|ג'ינס|blue|navy|denim/.test(c))return 'כחול';
+ if(/בורדו|יין|burgundy|wine/.test(c))return 'בורדו';
+ if(/שחור|black/.test(c))return 'שחור';
+ if(/אדום|red/.test(c))return 'אדום';
+ if(/ורוד|pink/.test(c))return 'ורוד';
+ if(/סגול|purple|lilac/.test(c))return 'סגול';
+ if(/ירוק|green|olive|זית/.test(c))return 'ירוק';
+ if(/צהוב|yellow|mustard|חרדל/.test(c))return 'צהוב';
+ if(/כתום|orange/.test(c))return 'כתום';
+ return String(value).trim();
+}
+function cleanColors(values){return [...new Set((Array.isArray(values)?values:[]).map(canonicalColor).filter(Boolean))]}
+function normalize(d){d.categories=[...new Set([...DEFAULT_CATEGORIES,...(Array.isArray(d.categories)?d.categories:[]).filter(x=>x!=='Pieces worth sharing')])];if(!d.subcategories||typeof d.subcategories!=='object')d.subcategories=structuredClone(DEFAULT_SUBCATEGORIES);delete d.subcategories['Pieces worth sharing'];d.products=Array.isArray(d.products)?d.products:[];d.products.forEach(p=>{if(!p.category||p.category==='Pieces worth sharing')p.category=inferCategory(p);p.colors=cleanColors(p.colors)});return d}let data=normalize({categories:DEFAULT_CATEGORIES,products:[]}),dirty=false,cat=null,faveOnly=false,boardLoaded=false;let client=null,currentAdmin=false;
 const $=id=>document.getElementById(id);
 const element=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x};
 const favorites=new Set(JSON.parse(localStorage.getItem('raz-edit-favorites')||'[]').map(String));
@@ -146,7 +167,7 @@ $('item-form').onsubmit=async e=>{
   url:$('item-url').value.trim(),price:$('item-price').value.trim(),
   img:$('item-image').value.trim(),fallbackImg:$('item-fallback-image').value.trim(),
   type:$('item-type').value.trim(),
-  colors:$('item-colors').value.split(',').map(x=>x.trim()).filter(Boolean),
+  colors:cleanColors($('item-colors').value.split(',')),
   category:$('item-category').value||'חולצות'
  };
  if(!p.name||!p.store){status.textContent='יש למלא שם פריט וחנות';return}
