@@ -570,6 +570,76 @@
       "category": "סריגים",
       "subcategory": "קרדיגנים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-str-05774101-004",
+      "name": "ג׳קט בלון במגע רך",
+      "store": "Stradivarius",
+      "url": "https://www.stradivarius.com/il/גקט-בלון-במגע-רך-l05774101?colorId=004&xs=13&pelement=511314090",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט בלון",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-01788638-430",
+      "name": "מעיל טרנץ׳ קצר בגזרה משוחררת עם חגורה",
+      "store": "Stradivarius",
+      "url": "https://www.stradivarius.com/il/מעיל-טרנץ-קצר-בגזרה-משוחררת-עם-חגורה-l01788638?colorId=430&xs=13&pelement=511314651",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טרנץ׳ קצר",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-ber-229723163-800",
+      "name": "ג׳קט דמוי עור",
+      "store": "Bershka",
+      "url": "https://www.bershka.com/il/ג'קט-דמוי-עור-c0p229723163.html?colorId=800",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי עור",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-ber-226926943-712",
+      "name": "ג׳קט אופנוענים קצר דו־צדדי",
+      "store": "Bershka",
+      "url": "https://www.bershka.com/il/ג'קט-אופנוענים-קצר-דו-צדדי-c0p226926943.html?colorId=712",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט אופנוענים",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-08073251-613029053",
+      "name": "ג׳קט דו־צדדי",
+      "store": "ZARA",
+      "url": "https://www.zara.com/il/he/ג-קט-דו-צדדי-p08073251.html?v1=613029053",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט דו־צדדי",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
     }
   ]
 }
