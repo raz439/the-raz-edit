@@ -244,6 +244,88 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "מעילים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210702767",
+      "name": "ג׳קט חולצה עם כפתורים – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-button-down-shacket-in-burgundy/prd/210702767",
+      "price": "",
+      "img": "https://images.asos-media.com/products/new-look-button-down-shacket-in-burgundy/210702767-1-burgundy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט חולצה",
+      "colors": [
+        "בורדו"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210498603",
+      "name": "ג׳קט טרנץ׳ קצר אסימטרי – Threadbare",
+      "store": "ASOS",
+      "url": "https://www.asos.com/threadbare/threadbare-short-trench-jacket-with-asymmetric-detail-in-stone/prd/210498603",
+      "price": "",
+      "img": "https://images.asos-media.com/products/threadbare-short-trench-jacket-with-asymmetric-detail-in-stone/210498603-1-stone?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "טרנץ׳ קצר",
+      "colors": [
+        "אבן",
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211142050",
+      "name": "ג׳קט דמוי זמש – ONLY",
+      "store": "ASOS",
+      "url": "https://www.asos.com/only/only-faux-suede-jacket-in-light-brown/prd/211142050",
+      "price": "",
+      "img": "https://images.asos-media.com/products/only-faux-suede-jacket-in-light-brown/211142050-1-lightbrown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי זמש",
+      "colors": [
+        "חום בהיר"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209493214",
+      "name": "ג׳קט בומבר כותנה – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-washed-cotton-bomber-jacket-in-cream/prd/209493214",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-washed-cotton-bomber-jacket-in-cream/209493214-1-cream?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "בומבר",
+      "colors": [
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208739857",
+      "name": "ג׳קט בארן עם צווארון מנוגד – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-zip-through-barn-jacket-with-contrast-pu-collar-in-tan-tan/prd/208739857",
+      "price": "",
+      "img": "https://images.asos-media.com/products/topshop-zip-through-barn-jacket-with-contrast-pu-collar-in-tan-tan/208739857-1-tan?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט בארן",
+      "colors": [
+        "חום בהיר",
+        "קאמל"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
     }
   ]
 }
