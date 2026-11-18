@@ -114,6 +114,72 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209603965",
+      "name": "ג׳קט ג׳ינס אוברסייז – Miss Selfridge",
+      "store": "ASOS",
+      "url": "https://www.asos.com/miss-selfridge/miss-selfridge-oversized-denim-jacket-in-blue-wash/prd/209603965",
+      "price": "",
+      "img": "https://images.asos-media.com/products/miss-selfridge-oversized-denim-jacket-in-blue-wash/209603965-1-bluewash?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט ג׳ינס",
+      "colors": [
+        "כחול"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208102257",
+      "name": "מעיל ארוך עם כפתורים כפולים – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-clean-double-breasted-longline-coat-in-burgundy/prd/208102257",
+      "price": "",
+      "img": "https://images.asos-media.com/products/topshop-clean-double-breasted-longline-coat-in-burgundy/208102257-1-burgundy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל ארוך",
+      "colors": [
+        "בורדו"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209241224",
+      "name": "מעיל מחויט – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-formal-coat-in-camel/prd/209241224",
+      "price": "",
+      "img": "https://images.asos-media.com/products/new-look-formal-coat-in-camel/209241224-1-17camel?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל מחויט",
+      "colors": [
+        "קאמל",
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210377233",
+      "name": "טרנץ׳ קליל קצר – Vero Moda",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vero-moda/vero-moda-lightweight-cropped-trench-coat-in-oatmeal/prd/210377233",
+      "price": "",
+      "img": "https://cdna.lystit.com/1040/1300/n/photos/asos/aba8af20/vero-moda-Neutral-Lightweight-Cropped-Trench-Coat.jpeg",
+      "fallbackImg": "",
+      "type": "ג׳קט טרנץ׳ קצר",
+      "colors": [
+        "בז׳",
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
     }
   ]
 }
