@@ -780,6 +780,50 @@
       "category": "חולצות",
       "subcategory": "חולצות ליציאה",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-str-06649414-001",
+      "name": "טופ תחרה עם כתפיות רחבות – שחור",
+      "url": "https://www.stradivarius.com/il/טופ-תחרה-עם-כתפיות-רחבות-l06649414?colorId=001&pelement=513369992",
+      "price": "119.90 ₪",
+      "colors": [
+        "שחור"
+      ],
+      "type": "טופ תחרה",
+      "store": "Stradivarius",
+      "img": "",
+      "fallbackImg": "",
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-06625185-650",
+      "name": "טופ מחויט עם כתפיות רחבות",
+      "url": "https://www.stradivarius.com/il/טופ-מחויט-עם-כתפיות-רחבות-l06625185?colorId=650&pelement=511323714",
+      "price": "",
+      "colors": [],
+      "type": "טופ מחויט",
+      "store": "Stradivarius",
+      "img": "",
+      "fallbackImg": "",
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-06649414-650",
+      "name": "טופ תחרה עם כתפיות רחבות – צבע נוסף",
+      "url": "https://www.stradivarius.com/il/טופ-תחרה-עם-כתפיות-רחבות-l06649414?colorId=650&pelement=513369993",
+      "price": "119.90 ₪",
+      "colors": [],
+      "type": "טופ תחרה",
+      "store": "Stradivarius",
+      "img": "",
+      "fallbackImg": "",
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
     }
   ]
 }
