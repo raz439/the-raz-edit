@@ -684,6 +684,102 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211564457",
+      "name": "ג׳קט קצר במראה צמר עם סגירת לולאות – Vero Moda",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vero-moda/vero-moda-wool-look-short-jacket-with-toggle-closures-in-neutral/prd/211564457",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט קצר",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-206945151",
+      "name": "טופ מעטפת כפול עם קשירת קולר ותחרה – Fashionkilla",
+      "store": "ASOS",
+      "url": "https://www.asos.com/fashionkilla/fashionkilla-exclusive-slinky-double-layered-wrap-halterneck-top-with-lace-trim-in-black/prd/206945151",
+      "price": "£28.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טופ קולר",
+      "colors": [
+        "שחור"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211648070",
+      "name": "טופ סאטן עם פרטי פאייטים – Motel",
+      "store": "ASOS",
+      "url": "https://www.asos.com/motel/motel-mercy-sequin-detail-satin-top-in-black/prd/211648070",
+      "price": "£28.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טופ סאטן",
+      "colors": [
+        "שחור"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210830111",
+      "name": "טופ גב פתוח עם עיטורים כסופים – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-premium-low-scoop-open-back-tank-top-with-heavy-silver-embellishment-in-off-white/prd/210830111",
+      "price": "£75.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "גופייה מעוטרת",
+      "colors": [
+        "לבן"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209617906",
+      "name": "גופיית כתפיות עם חרוזים – Abercrombie & Fitch",
+      "store": "ASOS",
+      "url": "https://www.asos.com/abercrombie-fitch/abercrombie-fitch-beaded-cami-in-white/prd/209617906?CTARef=Saved+Items+Image#variantId-209617932",
+      "price": "£39.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/abercrombie-fitch-beaded-cami-in-white/209617906-1-white?%24n_750w%24=&fit=crop&hei=750&wid=750",
+      "fallbackImg": "",
+      "type": "גופיית כתפיות",
+      "colors": [
+        "לבן"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211542665",
+      "name": "טופ קטיפה אסימטרי עם תחרה וקולר – VILA",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vila/vila-lace-trim-asymmetric-halter-neck-velvet-top-in-brown/prd/211542665",
+      "price": "£28.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טופ קטיפה",
+      "colors": [
+        "חום"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
     }
   ]
 }
