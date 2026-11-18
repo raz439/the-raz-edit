@@ -180,6 +180,70 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208044394",
+      "name": "ג׳קט בומבר דמוי שירלינג אוברסייז – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-oversized-funnel-tab-detail-shearling-bomber-in-brown/prd/208044394",
+      "price": "",
+      "img": "https://images.asos-media.com/products/topshop-oversized-funnel-tab-detail-shearling-bomber-in-brown/208044394-1-brown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט בומבר",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209121951",
+      "name": "מעיל ארוך מחויט עם חגורה נמוכה – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-dropped-belt-longline-formal-coat-in-charcoal/prd/209121951",
+      "price": "",
+      "img": "https://images.asos-media.com/products/topshop-dropped-belt-longline-formal-coat-in-charcoal/209121951-1-charcoal?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל מחויט",
+      "colors": [
+        "אפור כהה"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209495251",
+      "name": "מעיל צווארון גבוה עם כפתורים – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-funnel-neck-button-down-coat-in-mink/prd/209495251",
+      "price": "",
+      "img": "https://images.asos-media.com/products/new-look-funnel-neck-button-down-coat-in-mink/209495251-1-mink?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל",
+      "colors": [
+        "חום אפרפר"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209175931",
+      "name": "מעיל בז׳ בהיר – Monki",
+      "store": "ASOS",
+      "url": "https://www.asos.com/monki/monki-coat-in-light-beige/prd/209175931",
+      "price": "",
+      "img": "https://images.asos-media.com/products/monki-coat-in-light-beige/209175931-1-lightbeige?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל",
+      "colors": [
+        "בז׳ בהיר"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
     }
   ]
 }
