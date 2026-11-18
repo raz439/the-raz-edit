@@ -326,6 +326,88 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209450696",
+      "name": "ג׳קט קצר עם צווארון מודגש – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-bonded-collar-short-jacket-in-brown/prd/209450696",
+      "price": "",
+      "img": "https://images.asos-media.com/products/new-look-bonded-collar-short-jacket-in-brown/209450696-1-brown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט קצר",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209349499",
+      "name": "מעיל מחויט בדוגמת פישבון – Vero Moda",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vero-moda/vero-moda-tailored-herringbone-wool-mix-coat-in-taupe-brown/prd/209349499",
+      "price": "",
+      "img": "https://images.asos-media.com/products/vero-moda-tailored-herringbone-wool-mix-coat-in-taupe-brown/209349499-1-taupebrown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל מחויט",
+      "colors": [
+        "חום טאופ",
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209452626",
+      "name": "ג׳קט בייקר דמוי עור אוברסייז – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-slouchy-leather-look-oversized-biker-jacket-in-burgundy/prd/209452626",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-slouchy-leather-look-oversized-biker-jacket-in-burgundy/209452626-1-burgundy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי עור",
+      "colors": [
+        "בורדו"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209037269",
+      "name": "ג׳קט קצר עם כיסים גדולים – VILA",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vila/vila-short-faux-wool-jacket-with-exaggerated-pockets-in-light-brown/prd/209037269",
+      "price": "",
+      "img": "https://images.asos-media.com/products/vila-short-faux-wool-jacket-with-exaggerated-pockets-in-light-brown/209037269-1-lightbrown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי צמר",
+      "colors": [
+        "חום בהיר"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208047335",
+      "name": "מעיל אוברסייז בגוון פטרייה – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-oversized-dad-coat-in-mushroom-melange/prd/208047335",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-oversized-dad-coat-in-mushroom-melange/208047335-1-mushroommelange?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל אוברסייז",
+      "colors": [
+        "חום אפרפר",
+        "אפור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
     }
   ]
 }
