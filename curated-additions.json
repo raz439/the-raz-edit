@@ -640,6 +640,48 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-04344652-545490384",
+      "name": "ג׳קט בומבר עם צווארון רחב",
+      "url": "https://www.zara.com/il/he/ג-קט-bomber-עם-צווארון-רחב-p04344652.html?v1=545490384",
+      "type": "ג׳קט בומבר",
+      "store": "ZARA",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-05070666-598725468",
+      "name": "ג׳קט בומבר עם לשוניות",
+      "url": "https://www.zara.com/il/he/ג-קט-בומבר-עם-לשוניות-p05070666.html?v1=598725468",
+      "type": "ג׳קט בומבר",
+      "store": "ZARA",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-01255710-545446683",
+      "name": "ג׳קט עם צווארון גבוה וכיסים",
+      "url": "https://www.zara.com/il/he/ג-קט-עם-צווארון-גבוה-וכיסים-p01255710.html?v1=545446683",
+      "type": "ג׳קט",
+      "store": "ZARA",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
     }
   ]
 }
