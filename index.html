@@ -128,6 +128,7 @@ function renderColorPicker(){
  const selected=[...selectedColors].filter(c=>COLOR_ORDER.includes(c));
  $('color-summary').textContent=selected.length?selected.length===1?selected[0]:selected.length+' צבעים נבחרו':'כל הצבעים';
  const container=$('color-options');
+ const previousScroll=$('color-menu').scrollTop;
  container.replaceChildren();
  for(const color of COLOR_ORDER){
   const row=element('button','color-choice');
@@ -137,9 +138,10 @@ function renderColorPicker(){
   const name=element('span','',color),check=element('span','color-check',selectedColors.has(color)?'✓':'');
   check.setAttribute('aria-hidden','true');
   row.append(swatch,name,check);
-  row.onclick=()=>{selectedColors.has(color)?selectedColors.delete(color):selectedColors.add(color);renderColorPicker();draw()};
+  row.onclick=(event)=>{event.stopPropagation();selectedColors.has(color)?selectedColors.delete(color):selectedColors.add(color);renderColorPicker();draw()};
   container.append(row);
  }
+ $('color-menu').scrollTop=previousScroll;
 }
 function setColorMenu(open){
  $('color-menu').classList.toggle('hidden',!open);
