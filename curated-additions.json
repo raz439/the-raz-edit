@@ -618,11 +618,13 @@
       "name": "ג׳קט אופנוענים קצר דו־צדדי",
       "store": "Bershka",
       "url": "https://www.bershka.com/il/ג'קט-אופנוענים-קצר-דו-צדדי-c0p226926943.html?colorId=712",
-      "price": "",
+      "price": "299.00 ₪",
       "img": "",
       "fallbackImg": "",
       "type": "ג׳קט אופנוענים",
-      "colors": [],
+      "colors": [
+        "שמנת"
+      ],
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
