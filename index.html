@@ -76,14 +76,34 @@ $('welcome-continue').onclick=()=>{
 $('change-categories').onclick=openCategoryWelcome;
 async function mergeCuratedAdditions(){
  try{
-  const response=await fetch('curated-additions.json?v=20261117');
+  // A fixed URL query was causing stale manifests to survive updates in some browsers.
+  const response=await fetch('curated-additions.json?ts='+Date.now(),{cache:'no-store'});
   if(!response.ok)throw Error('curated additions not found');
   const payload=await response.json();
   if(!Array.isArray(payload.products))throw Error('invalid curated additions');
-  const existing=new Map(data.products.map(p=>[String(p.url||'').trim(),p]));
+  const productKey=p=>{
+   const url=String(p?.url||'').trim();
+   const asos=url.match(/\/prd\/(\d+)/);
+   if(asos)return 'asos:'+asos[1];
+   const hm=url.match(/productpage\.(\d+)\.html/);
+   if(hm)return 'hm:'+hm[1];
+   const zara=url.match(/-p(\d+)\.html/);
+   if(zara)return 'zara:'+zara[1];
+   return url.split('#')[0].split('?')[0];
+  };
+  const existing=new Map(data.products.map(p=>[productKey(p),p]));
   const hidden=new Set(Array.isArray(data.deletedCuratedIds)?data.deletedCuratedIds:[]);
-  const additions=payload.products.filter(p=>p.url&&!hidden.has(p.id)&&!existing.has(String(p.url).trim()));
-  payload.products.forEach(p=>{const found=existing.get(String(p.url||'').trim());if(found&&p.img&&!found.img)found.img=p.img});
+  const additions=[];
+  for(const p of payload.products){
+   if(!p.url||hidden.has(p.id))continue;
+   const key=productKey(p),found=existing.get(key);
+   if(!found){additions.push(p);existing.set(key,p);continue}
+   // Keep user-edited values. Only fill fields that are actually missing.
+   if(p.img&&!found.img)found.img=p.img;
+   if(p.fallbackImg&&!found.fallbackImg)found.fallbackImg=p.fallbackImg;
+   if(p.price&&!found.price)found.price=p.price;
+   if(Array.isArray(p.colors)&&p.colors.length&&!(found.colors||[]).length)found.colors=p.colors;
+  }
   data.products=[...additions,...data.products];
   normalize(data);
  }catch(error){console.warn('Unable to load curated additions',error)}
