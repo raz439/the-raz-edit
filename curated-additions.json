@@ -580,7 +580,10 @@
       "img": "",
       "fallbackImg": "",
       "type": "ג׳קט בלון",
-      "colors": [],
+      "colors": [
+        "אוף וויט",
+        "שמנת"
+      ],
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
@@ -590,11 +593,14 @@
       "name": "מעיל טרנץ׳ קצר בגזרה משוחררת עם חגורה",
       "store": "Stradivarius",
       "url": "https://www.stradivarius.com/il/מעיל-טרנץ-קצר-בגזרה-משוחררת-עם-חגורה-l01788638?colorId=430&xs=13&pelement=511314651",
-      "price": "",
+      "price": "199.00 ₪",
       "img": "",
       "fallbackImg": "",
       "type": "טרנץ׳ קצר",
-      "colors": [],
+      "colors": [
+        "אבן",
+        "בז׳"
+      ],
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
@@ -608,7 +614,9 @@
       "img": "",
       "fallbackImg": "",
       "type": "ג׳קט דמוי עור",
-      "colors": [],
+      "colors": [
+        "שחור"
+      ],
       "category": "ג׳קטים ומעילים",
       "subcategory": "ג׳קטים",
       "featured": true
