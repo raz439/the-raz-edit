@@ -2,53 +2,396 @@
 <html lang="he" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>THE RAZ EDIT</title>
 <style>
 :root{--ink:#27251f;--paper:#f8f6f1;--line:#ddd8cf;--sub:#77726c}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif}header{text-align:center;background:#f0ece5;padding:52px 15px 35px;border-bottom:1px solid var(--line)}.eyebrow{font-size:10px;letter-spacing:3px;direction:ltr}h1{font:normal clamp(43px,7vw,78px) Georgia,serif;direction:ltr;letter-spacing:-2px;margin:16px 0 12px}.hero-note{color:#55514c;font-size:13px}main{max-width:1200px;margin:auto;padding:28px 18px 65px}.collections{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:4px 0 30px}.pill{border:1px solid #d2cbc1;border-radius:30px;background:transparent;padding:10px 18px;cursor:pointer}.pill.active{background:var(--ink);color:white}.filter-panel{background:#fffdf9;border:1px solid var(--line);padding:18px;margin:10px 0 27px}.filter-row{display:flex;gap:12px;flex-wrap:wrap}.field{flex:1;min-width:155px}.field label{display:block;color:#726c66;font-size:12px;margin-bottom:7px}input,select,textarea{width:100%;border:1px solid #d8d1c7;border-radius:4px;background:white;padding:11px;font:13px Arial;min-height:41px}textarea{min-height:80px}.heading{display:flex;justify-content:space-between;align-items:center;margin:18px 0}.heading h2{font:normal 26px Georgia,serif;direction:ltr;margin:0}.count{color:var(--sub);font-size:12px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 17px}.product{display:flex;flex-direction:column;min-width:0}.photo{position:relative;aspect-ratio:3/4;background:#e7e2da;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.missing{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:15px;color:#625d58}.heart{position:absolute;top:10px;left:10px;border:0;border-radius:50%;background:#fffdf5ed;width:35px;height:35px;font-size:23px;cursor:pointer}.heart.saved{color:#b33c4a}.meta{margin-top:13px;font-size:10px;letter-spacing:1px;color:var(--sub);direction:ltr;text-align:right}.name{font-size:14px;min-height:43px;margin:8px 0}.price{font-size:12px;color:#58534e;margin-bottom:14px}.buy{background:var(--ink);color:white;text-decoration:none;text-align:center;padding:13px;font-size:11px;letter-spacing:1px;margin-top:auto;direction:ltr}.empty{grid-column:1/-1;text-align:center;padding:42px;color:var(--sub)}footer{text-align:center;border-top:1px solid var(--line);padding:26px;color:var(--sub);font-size:11px}.admin-wrap{max-width:950px;margin:22px auto;padding:0 18px 40px}.admin-panel{border:1px solid var(--line);background:#fffdf9;padding:22px;margin:15px 0}.admin-panel h2{font:normal 26px Georgia,serif}.admin-panel h3{font-size:15px}.admin-row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:10px 0}.admin-row>*{flex:1;min-width:130px}.admin-row button{flex:0 0 auto}.primary{background:var(--ink);color:white;border:0;padding:12px 18px;cursor:pointer}.secondary{border:1px solid #bcb3a7;background:white;padding:10px;cursor:pointer}.muted{color:var(--sub);font-size:12px;line-height:1.6}.admin-item{padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}.admin-item span{flex:1}.hidden{display:none!important}#message{min-height:22px;font-size:13px}a{color:inherit}@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 11px}header{padding:40px 12px 29px}.name{font-size:13px}.field{min-width:calc(50% - 8px)}main{padding:24px 12px 45px}}@media(max-width:350px){.grid{grid-template-columns:1fr}}
-</style></head><body>
-<header><div class="eyebrow">CURATED FASHION FINDS</div><h1>THE RAZ EDIT</h1><div class="hero-note">בחרי את הקטגוריה הרצויה</div></header>
-<main id="board"><nav id="collections" class="collections" aria-label="קטגוריות ראשיות"></nav><section class="filter-panel"><div class="filter-row"><div class="field"><label>חנות</label><select id="store"><option value="">כל החנויות</option></select></div><div class="field"><label>תת־קטגוריה</label><select id="type"><option value="">כל תתי־הקטגוריות</option></select></div><div class="field"><label>צבע</label><select id="color"><option value="">כל הצבעים</option></select></div><div class="field"><label>חיפוש</label><input id="search" placeholder="חפשי פריט או מותג..."></div></div><div class="admin-row"><button class="pill" id="faves">♡ מועדפים בלבד</button><button class="pill" id="reset">ניקוי סינונים</button></div></section><div class="heading"><h2 id="heading">All the pieces</h2><span class="count" id="count"></span></div><div id="grid" class="grid"></div></main>
-<section id="admin" class="admin-wrap hidden"><div class="admin-panel"><h2>Admin Studio</h2><p class="muted">ניהול האתר נשמר ישירות ב-GitHub. רק מי שיש לו הרשאת כתיבה למאגר יכול לשמור שינויים. הטוקן נשאר בזיכרון הדפדפן ולא נשמר באתר.</p><div class="admin-row"><input id="token" type="password" autocomplete="off" placeholder="GitHub fine-grained token (Contents: Read & Write)"><button id="connect" class="primary">התחברות</button></div><p class="muted">צרי Fine-grained personal access token ב-GitHub עם הרשאת Contents: Read and write למאגר the-raz-edit. אל תשלחי את הטוקן לאף אחת.</p><div id="message"></div></div>
-<div id="editing" class="hidden"><div class="admin-panel"><h3>קטגוריות הבורד</h3><div class="admin-row"><input id="new-category" placeholder="שם קטגוריה חדשה, למשל Accessories"><button id="add-category" class="secondary">הוספת קטגוריה</button></div><div id="categories-admin"></div><h3>תתי־קטגוריות</h3><div class="admin-row"><select id="subcat-parent"></select><input id="new-subcategory" placeholder="שם תת־קטגוריה חדשה, למשל חולצות לעבודה"><button id="add-subcategory" class="secondary">הוספת תת־קטגוריה</button></div><div id="subcategories-admin"></div><p class="muted">קטגוריות ותתי־קטגוריות יופיעו אחרי שתפרסמי את השינויים.</p></div>
-<div class="admin-panel"><h3 id="edit-title">הוספת פריט</h3><form id="item-form"><input type="hidden" id="item-id"><div class="admin-row"><input id="item-name" placeholder="שם הפריט" required><input id="item-store" placeholder="חנות" required></div><div class="admin-row"><input type="url" id="item-url" placeholder="קישור לקנייה (https://...)" required><input id="item-price" placeholder="מחיר (לא חובה)"></div><div class="admin-row"><input id="item-image" placeholder="קישור ישיר לתמונה (לא חובה)"><input id="item-type" placeholder="סוג פריט, למשל סוודר"></div><div class="admin-row"><input id="item-colors" placeholder="צבעים (מופרדים בפסיק)"><select id="item-category"></select><select id="item-subcategory"><option value="">ללא תת־קטגוריה</option></select></div><button class="primary" type="submit">שמירת פריט בטיוטה</button><button class="secondary" type="button" id="cancel-edit">ניקוי הטופס</button></form><h3>הפריטים</h3><div id="items-admin"></div></div>
-<div class="admin-panel"><h3>משתמשות ושיתוף</h3><p class="muted">כל מי שמקבלת את קישור האתר יכולה לצפות בו. הרשאות עריכה ניתנות דרך GitHub בלבד; האתר עדיין ציבורי ואינו כולל חשבונות פרטיים לחברות.</p><div class="admin-row"><button class="secondary" id="copy-url">העתקת קישור לבורד</button><a target="_blank" rel="noopener noreferrer" href="https://github.com/raz439/the-raz-edit/settings/access">ניהול הרשאות GitHub</a></div></div>
-<div class="admin-panel"><button id="publish" class="primary">פרסום כל השינויים באתר</button> <span class="muted" id="dirty"></span><p class="muted">פרסום שומר את הקטגוריות והפריטים ב-data.json דרך GitHub. ייתכן עיכוב קצר עד לעדכון האתר המתארח.</p></div></div></section>
-<footer>CURATED WITH LOVE · THE RAZ EDIT <span> · </span><a href="?admin=1">ADMIN</a></footer>
+.welcome-overlay{position:fixed;inset:0;z-index:100;background:#171612aa;display:flex;align-items:center;justify-content:center;padding:16px}.welcome-dialog{width:min(620px,100%);max-height:90vh;overflow:auto;background:#fffdf9;border:1px solid #ded5c9;box-shadow:0 25px 80px #0004;padding:30px;text-align:center}.welcome-dialog h2{font:normal 36px Georgia,serif}.welcome-options{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:24px 0}.welcome-option{border:1px solid #d9d1c6;background:#fff;min-height:48px;padding:10px;cursor:pointer}.welcome-option.selected{background:#27251f;color:#fff}.welcome-copy{color:#726c66;font-size:12px;letter-spacing:1px;direction:ltr}.category-settings{display:block;margin:0 auto 14px;border:0;background:transparent;text-decoration:underline;color:#6f665d;cursor:pointer}@media(max-width:500px){.welcome-options{grid-template-columns:repeat(2,1fr)}}.account-bar{position:absolute;top:16px;left:20px;display:flex;align-items:center;gap:12px;direction:rtl;font-size:13px;z-index:5}.account-bar .user-label{font-size:13px;color:#514b44}.account-bar button{border:1px solid #cfc6b9;border-radius:22px;padding:8px 14px;background:#fffaf3;cursor:pointer;font:12px Arial}.account-bar .admin-shortcut{background:#27251f;color:#fff}.login-screen{position:fixed;inset:0;z-index:110;background:#1e1b18a8;display:flex;align-items:center;justify-content:center;padding:16px}.login-dialog{position:relative;width:min(420px,100%);background:#fffdf9;padding:34px;border:1px solid #e1d9cd;box-shadow:0 20px 60px #0003;text-align:center}.login-dialog h2{font:normal 33px Georgia,serif;margin:10px 0}.login-dialog form{display:grid;gap:12px;text-align:right;margin-top:20px}.login-dialog input{width:100%}.login-close{position:absolute;top:9px;left:12px;border:0;background:transparent;font-size:26px;cursor:pointer}.login-error{color:#a13434;min-height:20px;font-size:13px}.admin-link-back{display:inline-block;margin-bottom:16px}.admin-access-hint{margin-top:12px}@media(max-width:650px){header{padding-top:96px}.account-bar{top:12px;left:12px;right:12px;justify-content:flex-start;gap:6px;flex-wrap:wrap}.account-bar button{padding:7px 10px}}.welcome-select-row{display:flex;justify-content:flex-start;direction:rtl;margin:16px 0 0}.welcome-select-row button{min-width:105px}.welcome-options{margin-top:12px}.welcome-copy{direction:rtl;letter-spacing:0;font-size:14px}.eyebrow{direction:rtl;letter-spacing:2px}h1{direction:rtl;letter-spacing:0}.heading h2{direction:rtl}.meta{direction:rtl}.buy{direction:rtl}.auth-actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:14px}.auth-link{border:0;background:transparent;text-decoration:underline;text-underline-offset:3px;color:#574e45;cursor:pointer;font-size:12px}.login-dialog .muted{line-height:1.7}.login-error{line-height:1.6}.login-dialog input{min-width:0}.edit-product{margin-top:7px;border:1px solid #aaa196;background:#fffdf8;padding:10px;cursor:pointer;font-size:12px}.edit-product:hover{background:#f0ece5}.save-toast{position:fixed;z-index:200;bottom:28px;left:50%;transform:translateX(-50%);max-width:min(90vw,460px);background:#27251f;color:#fff;padding:15px 26px;border:1px solid #736d65;box-shadow:0 12px 35px #0003;text-align:center;font-size:14px;line-height:1.5;pointer-events:none}.save-toast.error{background:#8d3030}.image-preview-row{display:flex;align-items:center;gap:15px;margin:10px 0 18px;flex-wrap:wrap}.image-preview-row img{width:90px;height:112px;object-fit:cover;border:1px solid #ddd5c9}.image-preview-row .muted{flex:1;min-width:180px} .color-picker{position:relative}.color-toggle{width:100%;min-height:41px;border:1px solid #d8d1c7;border-radius:4px;background:white;padding:10px 12px;font:13px Arial;display:flex;justify-content:space-between;align-items:center;text-align:right;cursor:pointer}.color-field{min-width:175px}.color-menu{position:absolute;z-index:30;top:calc(100% + 4px);right:0;width:min(310px,90vw);max-height:360px;overflow:auto;background:#fffdf9;border:1px solid #d8d1c7;box-shadow:0 12px 32px #0002;padding:12px}.color-menu-header{display:flex;justify-content:space-between;gap:9px;align-items:center;margin-bottom:8px;font-size:13px}.color-clear{border:0;background:transparent;text-decoration:underline;color:#625d58;cursor:pointer;font:12px Arial}.color-options{display:grid;grid-template-columns:1fr;gap:3px}.color-choice{display:flex;gap:11px;align-items:center;padding:7px 8px;border:1px solid transparent;border-radius:4px;cursor:pointer;background:transparent;text-align:right;width:100%;font:14px Arial;color:var(--ink)}.color-choice[aria-pressed="true"]{background:#f2eee8;border-color:#d8d1c7}.color-choice .color-check{margin-right:auto;color:#27251f;font-size:16px}.color-swatch{display:inline-block;width:19px;height:19px;flex:0 0 19px;border:1px solid #aaa49b;border-radius:50%;background:var(--swatch,#ddd)}.color-done{width:100%;margin-top:10px;padding:11px;border:0;background:var(--ink);color:#fff;cursor:pointer}@media(max-width:650px){.color-menu{max-height:min(55vh,370px)}} </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script><script src="supabase-config.js" defer></script></head><body>
+<header><div class="account-bar" id="account-bar"><span id="user-greeting" class="user-label">שלום אורח</span><button id="header-login" type="button">התחברות</button><button id="header-logout" type="button" class="hidden">התנתקות</button><button id="header-add" type="button" class="admin-shortcut hidden">＋ הוספת פריט</button><button id="header-manage" type="button" class="admin-shortcut hidden">ניהול האתר</button></div><div class="eyebrow">פריטי אופנה שנבחרו בקפידה</div><h1>THE RAZ EDIT</h1><div class="hero-note">בחרי את הקטגוריה הרצויה</div></header>
+<main id="board"><button id="change-categories" type="button" class="category-settings">שינוי הקטגוריות שלי</button><nav id="collections" class="collections" aria-label="קטגוריות ראשיות"></nav><section class="filter-panel"><div class="filter-row"><div class="field"><label>חנות</label><select id="store"><option value="">כל החנויות</option></select></div><div class="field"><label>תת־קטגוריה</label><select id="type"><option value="">כל תתי־הקטגוריות</option></select></div><div class="field color-field"><label id="color-filter-label">צבע</label><div class="color-picker"><button id="color-toggle" class="color-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="color-menu" aria-labelledby="color-filter-label color-summary"><span id="color-summary">כל הצבעים</span><span aria-hidden="true">⌄</span></button><div id="color-menu" class="color-menu hidden" role="group" aria-label="סינון לפי כמה צבעים"><div class="color-menu-header"><strong>בחרי צבעים</strong><button id="color-clear" type="button" class="color-clear">ניקוי בחירה</button></div><div id="color-options" class="color-options"></div><button id="color-close" type="button" class="color-done">הצגת פריטים</button></div></div></div><div class="field"><label>חיפוש</label><input id="search" placeholder="חפשי פריט או מותג..."></div></div><div class="admin-row"><button class="pill" id="faves">♡ מועדפים בלבד</button><button class="pill" id="reset">ניקוי סינונים</button></div></section><div class="heading"><h2 id="heading">כל הפריטים</h2><span class="count" id="count"></span></div><div id="grid" class="grid"></div></main>
+<div id="welcome-overlay" class="welcome-overlay hidden"><div role="dialog" aria-modal="true" aria-labelledby="welcome-title" class="welcome-dialog"><div class="eyebrow">THE RAZ EDIT</div><h2 id="welcome-title">מה בא לך לראות?</h2><p>בחרי את הקטגוריות שמעניינות אותך ♡</p><p class="welcome-copy">אל דאגה, אפשר לשנות את הבחירה ולהוסיף קטגוריות בהמשך.</p><div class="welcome-select-row"><button id="welcome-all" class="secondary" type="button">בחרי הכול</button></div><div id="welcome-options" class="welcome-options"></div> <button id="welcome-continue" class="primary" type="button">בחר</button></div></div><div id="save-toast" class="save-toast hidden" role="status" aria-live="polite"></div><div id="login-screen" class="login-screen hidden"><div class="login-dialog" role="dialog" aria-modal="true" aria-labelledby="login-title"><button id="login-close" class="login-close" type="button" aria-label="סגירה">×</button><div class="eyebrow">THE RAZ EDIT</div><h2 id="login-title">ברוכה הבאה</h2><p class="muted" id="auth-description">התחברי עם האימייל והסיסמה שלך</p><form id="login-form"><div id="signup-name-wrap" class="hidden"><input id="signup-name" type="text" placeholder="שם לתצוגה" autocomplete="name" maxlength="40"></div><input id="admin-email" type="email" placeholder="אימייל" autocomplete="email" required><input id="admin-password" type="password" placeholder="סיסמה" autocomplete="current-password" required minlength="6"><button id="connect" class="primary" type="submit">התחברות</button><div id="login-error" class="login-error" role="status" aria-live="polite"></div></form><div class="auth-actions"><button id="switch-signup" type="button" class="auth-link">אין לך חשבון? הרשמה</button><button id="switch-login" type="button" class="auth-link hidden">יש לך חשבון? התחברות</button><button id="forgot-password" type="button" class="auth-link">שכחת סיסמה?</button></div></div></div><section id="admin" class="admin-wrap hidden"><div class="admin-panel"><a href="?" class="secondary admin-link-back">← חזרה לבורד</a><h2>ממשק ניהול</h2><p class="muted">רק חשבון מנהלת מורשה יכול לערוך ולפרסם את פריטי הבורד.</p><div id="message" role="status"></div><button id="admin-sign-in" class="secondary hidden" type="button">התחברות לניהול</button></div>
+<div id="editing" class="hidden"><div class="admin-panel"><div class="admin-row"><button id="jump-add-item" class="primary" type="button">＋ הוספת פריט חדש</button><button id="jump-categories" class="secondary" type="button">ניהול קטגוריות</button></div></div><div class="admin-panel" id="admin-categories"><h3>קטגוריות הבורד</h3><div class="admin-row"><input id="new-category" placeholder="שם קטגוריה חדשה, למשל אקססוריז"><button id="add-category" class="secondary">הוספת קטגוריה</button></div><div id="categories-admin"></div><h3>תתי־קטגוריות</h3><div class="admin-row"><select id="subcat-parent"></select><input id="new-subcategory" placeholder="שם תת־קטגוריה חדשה, למשל חולצות לעבודה"><button id="add-subcategory" class="secondary">הוספת תת־קטגוריה</button></div><div id="subcategories-admin"></div><p class="muted">קטגוריות ותתי־קטגוריות יופיעו אחרי שתפרסמי את השינויים.</p></div>
+<div class="admin-panel" id="admin-add-item"><h3 id="edit-title">הוספת פריט</h3><form id="item-form"><input type="hidden" id="item-id"><div class="admin-row"><input id="item-name" placeholder="שם הפריט" required><input id="item-store" placeholder="חנות" required></div><div class="admin-row"><input type="url" id="item-url" placeholder="הדביקי קישור למוצר (https://...)" required><button class="secondary" type="button" id="lookup-product">זיהוי פרטי המוצר</button><input id="item-price" placeholder="מחיר (לא חובה)"></div><p id="lookup-status" class="muted" role="status">לאחר הדבקת קישור ננסה למלא את שם הפריט, החנות והתמונה אוטומטית. אפשר לתקן הכול ידנית.</p><div class="admin-row"><input type="text" id="item-image" placeholder="קישור לתמונה (אוטומטי או ידני)"><input type="text" id="item-fallback-image" placeholder="תמונה חלופית אם הראשונה לא נטענת"></div><div class="image-preview-row"><img id="item-image-preview" class="hidden" alt="תצוגה מקדימה לתמונה"><p class="muted" id="item-image-status">תצוגה מקדימה לתמונה תופיע כאן לפני השמירה.</p></div><div class="admin-row"><input id="item-type" placeholder="סוג פריט, למשל סוודר"></div><div class="admin-row"><input id="item-colors" placeholder="צבעים (מופרדים בפסיק)"><select id="item-category"></select><select id="item-subcategory"><option value="">ללא תת־קטגוריה</option></select></div><button class="primary" id="save-item" type="submit">שמירת פריט באתר</button><p id="item-save-status" class="muted" role="status" aria-live="polite"></p><button class="secondary" type="button" id="cancel-edit">ניקוי הטופס</button></form><h3>הפריטים</h3><div id="items-admin"></div></div>
+<div class="admin-panel"><h3>משתמשות ושיתוף</h3><p class="muted">הזמיני חברות באימייל. הן יקבלו הרשאת צפייה בלבד. הבורד הציבורי עדיין נגיש לכל מי שיש לו את הקישור.</p><div class="admin-row"><input type="email" id="invite-email" placeholder="האימייל של החברה"><button id="invite-user" class="secondary">שליחת הזמנה</button><button class="secondary" id="copy-url">העתקת קישור לבורד</button></div><p class="muted" id="invite-status"></p></div>
+<div class="admin-panel"><button id="publish" class="primary">שמירת השינויים בבורד</button> <span class="muted" id="dirty"></span><p class="muted">השמירה מעדכנת את מסד הנתונים מיד, בלי פרסום חדש ב-Netlify.</p></div></div></section>
+<footer>נבחר באהבה · THE RAZ EDIT</footer>
 <script>
 'use strict';
 const repo='raz439/the-raz-edit',initial='https://raw.githubusercontent.com/raz439/the-raz-edit/25365b3583ea363834f49a9eff7cc6ce0a1fe597/index.html';
-const DEFAULT_CATEGORIES=['Pieces worth sharing','חולצות','סריגים','מכנסיים','ג׳קטים ומעילים','שמלות','חצאיות','נעליים','תיקים','אקססוריז','סטים'];const DEFAULT_SUBCATEGORIES={'חולצות':['ליום יום','ליציאה','לעבודה','מכופתרות','טופים'],'סריגים':['סוודרים','קרדיגנים','וסט סריג'],'מכנסיים':['ג׳ינסים','מחויטים','קצרים','קז׳ואל'],'ג׳קטים ומעילים':['בלייזרים','מעילים','ג׳קטים'],'שמלות':['יומיומיות','ליציאה','לאירועים'],'נעליים':['סניקרס','מגפיים','עקבים','שטוחות'],'אקססוריז':['תכשיטים','חגורות','צעיפים','משקפיים']};function normalize(d){d.categories=Array.isArray(d.categories)?[...new Set(d.categories)]:[...DEFAULT_CATEGORIES];if(!d.subcategories||typeof d.subcategories!=='object')d.subcategories=structuredClone(DEFAULT_SUBCATEGORIES);d.products=Array.isArray(d.products)?d.products:[];return d}let data=normalize({categories:['Pieces worth sharing'],products:[]}),token='',sha=null,dirty=false,cat=null,faveOnly=false;
+const DEFAULT_CATEGORIES=['חולצות','סריגים','מכנסיים','ג׳קטים ומעילים','שמלות','חצאיות','נעליים','תיקים','אקססוריז','סטים'];const DEFAULT_SUBCATEGORIES={'חולצות':['ליום יום','ליציאה','לעבודה','מכופתרות','טופים'],'סריגים':['סוודרים','קרדיגנים','וסט סריג'],'מכנסיים':['ג׳ינסים','מחויטים','קצרים','קז׳ואל'],'ג׳קטים ומעילים':['בלייזרים','מעילים','ג׳קטים'],'שמלות':['יומיומיות','ליציאה','לאירועים'],'נעליים':['סניקרס','מגפיים','עקבים','שטוחות'],'אקססוריז':['תכשיטים','חגורות','צעיפים','משקפיים']};function inferCategory(p){const t=String(p.type||'').toLowerCase(),n=String(p.name||'').toLowerCase(),v=t+' '+n;if(/סוודר|סריג|קרדיגן|knit|sweater|cardigan/.test(v))return 'סריגים';if(/חולצ|shirt|blouse|top|tee/.test(v))return 'חולצות';if(/מכנס|ג׳ינס|גינס|trouser|jeans|pants/.test(v))return 'מכנסיים';if(/ג׳קט|מעיל|בלייזר|jacket|coat|blazer/.test(v))return 'ג׳קטים ומעילים';if(/נעל|סניקר|מגף|shoe|sneaker|boot/.test(v))return 'נעליים';if(/שמלה|dress/.test(v))return 'שמלות';if(/חצאית|skirt/.test(v))return 'חצאיות';if(/תיק|bag/.test(v))return 'תיקים';if(/תכשיט|חגורה|צעיף|accessor|jewelry/.test(v))return 'אקססוריז';return 'חולצות'}function canonicalColor(value){
+ const c=String(value||'').trim().toLowerCase().replace(/[׳’']/g,"'");
+ if(!c)return '';
+ if(/משובץ|מפוספס|דוגמ|מנומר|צבעוני/.test(c))return '';
+ if(/חום|קאמל|camel|taupe|טאופ|שוקולד|מינק|mink|tan\b|brown|מוקה/.test(c))return 'חום';
+ if(/אפור|אפרפר|גרפיט|פחם|charcoal|grey|gray/.test(c))return 'אפור';
+ if(/בז|אבן|אוטמיל|oatmeal|beige|stone|sand/.test(c))return 'בז׳';
+ if(/אוף\s?וויט|off.white|לבן|white/.test(c))return 'לבן';
+ if(/שמנת|קרם|cream|ivory/.test(c))return 'שמנת';
+ if(/כחול|נייבי|ג'ינס|blue|navy|denim/.test(c))return 'כחול';
+ if(/בורדו|יין|burgundy|wine/.test(c))return 'בורדו';
+ if(/שחור|black/.test(c))return 'שחור';
+ if(/אדום|red/.test(c))return 'אדום';
+ if(/ורוד|pink/.test(c))return 'ורוד';
+ if(/סגול|purple|lilac/.test(c))return 'סגול';
+ if(/טורקיז|turquoise|teal|aqua/.test(c))return 'טורקיז';
+ if(/ירוק|green|olive|זית/.test(c))return 'ירוק';
+ if(/צהוב|yellow|mustard|חרדל/.test(c))return 'צהוב';
+ if(/כתום|orange/.test(c))return 'כתום';
+ return String(value).trim();
+}
+function cleanColors(values){return [...new Set((Array.isArray(values)?values:[]).map(canonicalColor).filter(Boolean))]}
+function normalize(d){d.categories=[...new Set([...DEFAULT_CATEGORIES,...(Array.isArray(d.categories)?d.categories:[]).filter(x=>x!=='Pieces worth sharing')])];if(!d.subcategories||typeof d.subcategories!=='object')d.subcategories=structuredClone(DEFAULT_SUBCATEGORIES);delete d.subcategories['Pieces worth sharing'];d.products=Array.isArray(d.products)?d.products:[];d.products.forEach(p=>{if(!p.category||p.category==='Pieces worth sharing')p.category=inferCategory(p);p.colors=cleanColors(p.colors)});return d}let data=normalize({categories:DEFAULT_CATEGORIES,products:[]}),dirty=false,cat=null,faveOnly=false,boardLoaded=false;let client=null,currentAdmin=false;
 const $=id=>document.getElementById(id);
 const element=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x};
 const favorites=new Set(JSON.parse(localStorage.getItem('raz-edit-favorites')||'[]').map(String));
-async function load(){
- try{const r=await fetch('data.json?ts='+Date.now());if(r.ok){data=await r.json();normalize(data);draw();return}}catch(e){}
- try{const r=await fetch(initial);if(!r.ok)throw Error('Legacy products unavailable');const html=await r.text();const a=html.indexOf('const products=')+15;const b=html.indexOf(';\nconst palette=',a);if(a<15||b<0)throw Error('Unable to read products');const list=JSON.parse(html.slice(a,b));data.products=list.map(p=>Object.assign({},p,{category:['סוודר','קרדיגן'].includes(p.type)?'סריגים':'Pieces worth sharing',subcategory:p.type==='סוודר'?'סוודרים':p.type==='קרדיגן'?'קרדיגנים':'',featured:true}));normalize(data);draw()}catch(e){$('grid').append(element('p','empty','לא ניתן לטעון את הפריטים כרגע. נסי לרענן את העמוד.'));console.error(e)}
+const COLOR_ORDER=['לבן','שמנת','בז׳','צהוב','כתום','אדום','בורדו','ורוד','סגול','כחול','טורקיז','ירוק','אפור','שחור','חום'];
+const COLOR_SWATCH={'לבן':'#ffffff','שמנת':'#f4ecd9','בז׳':'#cfb89d','צהוב':'#f3d64e','כתום':'#e98634','אדום':'#d44747','בורדו':'#722c43','ורוד':'#e998b9','סגול':'#9c78c6','כחול':'#3c6bb5','טורקיז':'#46bdbb','ירוק':'#609267','אפור':'#91959a','שחור':'#242424','חום':'#856047'};
+const selectedColors=new Set();
+const prefsKey='raz-edit-category-prefs-v1',welcomeKey='raz-edit-category-welcome-v1';
+const isAdminPage=new URLSearchParams(location.search).get('admin')==='1';
+let selectedCategories=new Set(JSON.parse(localStorage.getItem(prefsKey)||'[]'));
+let draftCategories=new Set();
+function visibleCategories(){return [...new Set([...DEFAULT_CATEGORIES,...data.categories])].filter(c=>c!=='Pieces worth sharing')}
+function openCategoryWelcome(){
+ if(isAdminPage)return;
+ draftCategories=new Set(selectedCategories);
+ const host=$('welcome-options');host.replaceChildren();
+ visibleCategories().forEach(c=>{
+  const btn=element('button','welcome-option'+(draftCategories.has(c)?' selected':''),c);
+  btn.type='button';btn.setAttribute('aria-pressed',String(draftCategories.has(c)));
+  btn.onclick=()=>{draftCategories.has(c)?draftCategories.delete(c):draftCategories.add(c);refreshWelcome()};
+  host.append(btn);
+ });
+ refreshWelcome();$('welcome-overlay').classList.remove('hidden');
 }
+function refreshWelcome(){
+ Array.from($('welcome-options').children).forEach(b=>{const active=draftCategories.has(b.textContent);b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active))});
+}
+$('welcome-all').onclick=()=>{draftCategories=new Set(visibleCategories());refreshWelcome()};
+$('welcome-continue').onclick=()=>{
+ if(!draftCategories.size){alert('בחרי לפחות קטגוריה אחת');return}
+ selectedCategories=new Set(draftCategories);
+ localStorage.setItem(prefsKey,JSON.stringify([...selectedCategories]));
+ localStorage.setItem(welcomeKey,'yes');
+ $('welcome-overlay').classList.add('hidden');
+ cat=selectedCategories.size===1?[...selectedCategories][0]:'';
+ draw();
+};
+$('change-categories').onclick=openCategoryWelcome;
+async function mergeCuratedAdditions(){
+ try{
+  // A fixed URL query was causing stale manifests to survive updates in some browsers.
+  const response=await fetch('curated-additions.json?ts='+Date.now(),{cache:'no-store'});
+  if(!response.ok)throw Error('curated additions not found');
+  const payload=await response.json();
+  if(!Array.isArray(payload.products))throw Error('invalid curated additions');
+  const productKey=p=>{
+   const url=String(p?.url||'').trim();
+   const asos=url.match(/\/prd\/(\d+)/);
+   if(asos)return 'asos:'+asos[1];
+   const hm=url.match(/productpage\.(\d+)\.html/);
+   if(hm)return 'hm:'+hm[1];
+   const stradi=url.match(/-l(\d+)/);
+   if(stradi&&/stradivarius\.com/.test(url)){const variant=url.match(/[?&]colorId=([^&#]+)/);return 'stradivarius:'+stradi[1]+':'+(variant?variant[1]:'base')}
+   const bershka=url.match(/-c0p(\d+)\.html/);
+   if(bershka){const variant=url.match(/[?&]colorId=([^&#]+)/);return 'bershka:'+bershka[1]+':'+(variant?variant[1]:'base')}
+   const zara=url.match(/-p(\d+)\.html/);
+   if(zara)return 'zara:'+zara[1];
+   return url.split('#')[0].split('?')[0];
+  };
+  const existing=new Map(data.products.map(p=>[productKey(p),p]));
+  const hidden=new Set(Array.isArray(data.deletedCuratedIds)?data.deletedCuratedIds:[]);
+  const additions=[];
+  for(const p of payload.products){
+   if(!p.url||hidden.has(p.id))continue;
+   const key=productKey(p),found=existing.get(key);
+   if(!found){additions.push(p);existing.set(key,p);continue}
+   // Keep user-edited values. Only fill fields that are actually missing.
+   if(p.img&&!found.img)found.img=p.img;
+   if(p.fallbackImg&&!found.fallbackImg)found.fallbackImg=p.fallbackImg;
+   if(p.price&&!found.price)found.price=p.price;
+   if(Array.isArray(p.colors)&&p.colors.length&&!(found.colors||[]).length)found.colors=p.colors;
+  }
+  data.products=[...additions,...data.products];
+  normalize(data);
+ }catch(error){console.warn('Unable to load curated additions',error)}
+}
+function finishBoardLoad(){
+ boardLoaded=true;
+ draw();
+ if(currentAdmin&&isAdminPage){renderAdmin();openRequestedEdit()}
+}
+async function load(){
+ data.categories=visibleCategories();
+ draw();
+ if(!isAdminPage&&localStorage.getItem(welcomeKey)!=='yes')openCategoryWelcome();
+ client=buildClient();
+ if(client){client.auth.onAuthStateChange((event)=>{if(event==='PASSWORD_RECOVERY')setTimeout(()=>openLogin('recovery'),0);else if(event==='SIGNED_IN'||event==='SIGNED_OUT')setTimeout(()=>refreshAccount(),0)});}
+ await refreshAccount();
+ if(client){try{const {data:record,error}=await client.from('board_content').select('content').eq('id',1).maybeSingle();if(error)throw error;if(record?.content){data=normalize(record.content);await mergeCuratedAdditions();finishBoardLoad();return}}catch(e){console.warn('Board database load failed',e)}}
+ try{const r=await fetch('data.json?ts='+Date.now());if(r.ok){data=normalize(await r.json());await mergeCuratedAdditions();finishBoardLoad();return}}catch(e){}
+ try{const r=await fetch(initial);if(!r.ok)throw Error('Legacy products unavailable');const html=await r.text();const a=html.indexOf('const products=')+15;const b=html.indexOf(';\nconst palette=',a);if(a<15||b<0)throw Error('Unable to read products');const list=JSON.parse(html.slice(a,b));data.products=list.map(p=>Object.assign({},p,{category:inferCategory(p),subcategory:p.type==='סוודר'?'סוודרים':p.type==='קרדיגן'?'קרדיגנים':'',featured:true}));normalize(data);await mergeCuratedAdditions();finishBoardLoad()}catch(e){$('grid').append(element('p','empty','לא ניתן לטעון את הפריטים כרגע. נסי לרענן את העמוד.'));console.error(e)}
+}
+function renderColorPicker(){
+ const selected=[...selectedColors].filter(c=>COLOR_ORDER.includes(c));
+ $('color-summary').textContent=selected.length?selected.length===1?selected[0]:selected.length+' צבעים נבחרו':'כל הצבעים';
+ const container=$('color-options');
+ const previousScroll=$('color-menu').scrollTop;
+ container.replaceChildren();
+ for(const color of COLOR_ORDER){
+  const row=element('button','color-choice');
+  row.type='button';row.setAttribute('aria-pressed',String(selectedColors.has(color)));
+  const swatch=element('span','color-swatch');swatch.style.setProperty('--swatch',COLOR_SWATCH[color]);
+  swatch.setAttribute('aria-hidden','true');
+  const name=element('span','',color),check=element('span','color-check',selectedColors.has(color)?'✓':'');
+  check.setAttribute('aria-hidden','true');
+  row.append(swatch,name,check);
+  row.onclick=(event)=>{event.stopPropagation();selectedColors.has(color)?selectedColors.delete(color):selectedColors.add(color);renderColorPicker();draw()};
+  container.append(row);
+ }
+ $('color-menu').scrollTop=previousScroll;
+}
+function setColorMenu(open){
+ $('color-menu').classList.toggle('hidden',!open);
+ $('color-toggle').setAttribute('aria-expanded',String(open));
+}
+$('color-toggle').onclick=()=>setColorMenu($('color-menu').classList.contains('hidden'));
+$('color-clear').onclick=()=>{selectedColors.clear();renderColorPicker();draw()};
+$('color-close').onclick=()=>setColorMenu(false);
+document.addEventListener('click',event=>{if(!event.target.closest('.color-picker'))setColorMenu(false)});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')setColorMenu(false)});
+renderColorPicker();
 function unique(key){return [...new Set(data.products.flatMap(p=>key==='colors'?(p.colors||[]):[p[key]]).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),'he'))}
 function options(id,values,all){const node=$(id),value=node.value;node.replaceChildren(new Option(all,''));values.forEach(v=>node.append(new Option(v,v)));node.value=values.includes(value)?value:''}
 function draw(){
- const list=$('collections');list.replaceChildren();[['','כל הפריטים'],...data.categories.map(x=>[x,x])].forEach(([value,label])=>{const b=element('button','pill'+(cat===value?' active':''),label);b.onclick=()=>{cat=value;$('type').value='';draw()};list.append(b)});
- options('store',unique('store'),'כל החנויות');options('type',cat===null?[]:(data.subcategories[cat]||[]),'כל תתי־הקטגוריות');options('color',unique('colors'),'כל הצבעים');
- const q=$('search').value.trim().toLowerCase(),items=cat===null?[]:data.products.filter(p=>(!cat||(cat==='Pieces worth sharing'?p.featured!==false:p.category===cat)||(!p.category&&cat==='Pieces worth sharing'))&&(!$('store').value||p.store===$('store').value)&&(!$('type').value||p.subcategory===$('type').value)&&(!$('color').value||(p.colors||[]).includes($('color').value))&&(!faveOnly||favorites.has(String(p.id)))&&(p.name+' '+p.store+' '+(p.type||'')+' '+(p.subcategory||'')+' '+(p.colors||[]).join(' ')).toLowerCase().includes(q));
- $('heading').textContent=cat===null?'בחרי קטגוריה כדי להתחיל':(cat||'All the pieces');$('count').textContent=items.length+' / '+data.products.length+' PICKS';const grid=$('grid');grid.replaceChildren();if(!items.length)grid.append(element('p','empty',cat===null?'בחרי קטגוריה למעלה כדי לראות את הפריטים ♡':'אין פריטים בקטגוריה הזאת עדיין ♡'));
- items.forEach(p=>{const card=element('article','product'),photo=element('div','photo');const missing=()=>{photo.querySelector('img')?.remove();if(!photo.querySelector('.missing'))photo.prepend(element('div','missing',p.store+' · לתמונה לחצי על קישור המוצר'))};if(p.img){const img=element('img');img.src=p.img;img.alt=p.name;img.loading='lazy';img.onerror=missing;photo.append(img)}else missing();const heart=element('button','heart'+(favorites.has(String(p.id))?' saved':''),favorites.has(String(p.id))?'♥':'♡');heart.onclick=()=>{const id=String(p.id);favorites.has(id)?favorites.delete(id):favorites.add(id);localStorage.setItem('raz-edit-favorites',JSON.stringify([...favorites]));draw()};heart.setAttribute('aria-label','שמירה במועדפים');photo.append(heart);const link=element('a','buy','SHOP THE PIECE ↗');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';card.append(photo,element('div','meta',p.store+' · '+(p.type||'')),element('div','name',p.name),element('div','price',p.price||'למחיר עדכני בחנות'),link);grid.append(card)});
+ const list=$('collections');list.replaceChildren();[['','כל הפריטים'],...data.categories.filter(x=>x!=='Pieces worth sharing'&&(!selectedCategories.size||selectedCategories.has(x))).map(x=>[x,x])].forEach(([value,label])=>{const b=element('button','pill'+(cat===value?' active':''),label);b.onclick=()=>{cat=value;$('type').value='';draw()};list.append(b)});
+ const activeCats=cat&&cat!==null?[cat]:(selectedCategories.size?[...selectedCategories]:data.categories);const allSubcats=[...new Set(activeCats.flatMap(c=>data.subcategories[c]||[]))];options('store',unique('store'),'כל החנויות');options('type',allSubcats,'כל תתי־הקטגוריות');
+ const q=$('search').value.trim().toLowerCase(),items=cat===null?[]:data.products.filter(p=>(cat?p.category===cat:activeCats.includes(p.category))&&(!$('store').value||p.store===$('store').value)&&(!$('type').value||p.subcategory===$('type').value)&&(!selectedColors.size||(p.colors||[]).some(c=>selectedColors.has(c)))&&(!faveOnly||favorites.has(String(p.id)))&&(p.name+' '+p.store+' '+(p.type||'')+' '+(p.subcategory||'')+' '+(p.colors||[]).join(' ')).toLowerCase().includes(q));
+ $('heading').textContent=cat===null?'בחרי קטגוריה כדי להתחיל':(cat||'כל הפריטים');$('count').textContent=items.length+' / '+data.products.length+' פריטים';const grid=$('grid');grid.replaceChildren();if(!items.length)grid.append(element('p','empty',cat===null?'בחרי קטגוריה למעלה כדי לראות את הפריטים ♡':'אין פריטים בקטגוריה הזאת עדיין ♡'));
+ items.forEach(p=>{const card=element('article','product'),photo=element('div','photo');const missing=()=>{photo.querySelector('img')?.remove();if(!photo.querySelector('.missing'))photo.prepend(element('div','missing',p.store+' · לתמונה לחצי על קישור המוצר'))};if(p.img||p.fallbackImg){const img=element('img');img.src=p.img||p.fallbackImg;img.alt=p.name;img.loading='lazy';img.onerror=()=>{if(p.fallbackImg&&img.src!==p.fallbackImg){img.onerror=missing;img.src=p.fallbackImg}else missing()};photo.append(img)}else missing();const heart=element('button','heart'+(favorites.has(String(p.id))?' saved':''),favorites.has(String(p.id))?'♥':'♡');heart.onclick=()=>{const id=String(p.id);favorites.has(id)?favorites.delete(id):favorites.add(id);localStorage.setItem('raz-edit-favorites',JSON.stringify([...favorites]));draw()};heart.setAttribute('aria-label','שמירה במועדפים');photo.append(heart);const link=element('a','buy','לצפייה בפריט');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';card.append(photo,element('div','meta',p.store+' · '+(p.type||'')),element('div','name',p.name),element('div','price',p.price||'למחיר עדכני בחנות'),link);if(currentAdmin){const editButton=element('button','edit-product','עריכת פריט');editButton.type='button';editButton.onclick=()=>{sessionStorage.setItem('raz-edit-edit-item',String(p.id));location.href=location.pathname+'?admin=1'};card.append(editButton)}grid.append(card)});
 }
-['store','type','color','search'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',draw));
+['store','type','search'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',draw));
 $('faves').onclick=()=>{faveOnly=!faveOnly;$('faves').classList.toggle('active',faveOnly);draw()};
-$('reset').onclick=()=>{cat=null;faveOnly=false;$('search').value='';['store','type','color'].forEach(id=>$(id).value='');$('faves').classList.remove('active');draw()};
-if(new URLSearchParams(location.search).has('admin')){$('board').classList.add('hidden');$('admin').classList.remove('hidden')}
-function mark(){dirty=true;$('dirty').textContent='יש שינויים שטרם פורסמו';draw();renderAdmin()}
+$('reset').onclick=()=>{cat=null;faveOnly=false;$('search').value='';['store','type'].forEach(id=>$(id).value='');selectedColors.clear();renderColorPicker();setColorMenu(false);$('faves').classList.remove('active');draw()};
+if(new URLSearchParams(location.search).get('admin')==='1'){$('board').classList.add('hidden');$('admin').classList.remove('hidden')}
+function mark(){if(!boardLoaded){$('dirty').textContent='שמירה לא זמינה עד לטעינת הפריטים';return}dirty=true;$('dirty').textContent='יש שינויים שטרם פורסמו';draw();renderAdmin()}
 function renderAdmin(){
- const cats=$('categories-admin');cats.replaceChildren();data.categories.forEach(c=>{const row=element('div','admin-item'),name=element('span','',c),del=element('button','secondary','מחיקה');del.onclick=()=>{if(data.products.some(p=>(p.category||'Pieces worth sharing')===c)){alert('קודם העבירי את הפריטים מקטגוריה זו');return}data.categories=data.categories.filter(x=>x!==c);delete data.subcategories[c];if(cat===c)cat=null;mark()};row.append(name,del);cats.append(row)});
+ const cats=$('categories-admin');cats.replaceChildren();data.categories.forEach(c=>{const row=element('div','admin-item'),name=element('span','',c),del=element('button','secondary','מחיקה');del.onclick=()=>{if(data.products.some(p=>(p.category||inferCategory(p))===c)){alert('קודם העבירי את הפריטים מקטגוריה זו');return}data.categories=data.categories.filter(x=>x!==c);delete data.subcategories[c];if(cat===c)cat=null;mark()};row.append(name,del);cats.append(row)});
  const parent=$('subcat-parent'),parentValue=parent.value;parent.replaceChildren();data.categories.forEach(c=>parent.append(new Option(c,c)));parent.value=data.categories.includes(parentValue)?parentValue:data.categories[0]||'';renderSubcategories();const select=$('item-category'),current=select.value;select.replaceChildren();data.categories.forEach(c=>select.append(new Option(c,c)));select.value=data.categories.includes(current)?current:data.categories[0]||'';renderItemSubcategories();
- const holder=$('items-admin');holder.replaceChildren();data.products.forEach(p=>{const row=element('div','admin-item');row.append(element('span','',p.name+' · '+(p.category||'Pieces worth sharing')));const edit=element('button','secondary','עריכה');edit.onclick=()=>{const fields={id:'item-id',name:'item-name',store:'item-store',url:'item-url',price:'item-price',img:'item-image',type:'item-type',category:'item-category'};Object.entries(fields).forEach(([key,id])=>$(id).value=p[key]??(key==='category'?'Pieces worth sharing':''));renderItemSubcategories();$('item-subcategory').value=p.subcategory||'';$('item-colors').value=(p.colors||[]).join(', ');$('edit-title').textContent='עריכת פריט';$('item-form').scrollIntoView({behavior:'smooth'})};const del=element('button','secondary','מחיקה');del.onclick=()=>{if(confirm('למחוק את הפריט?')){data.products=data.products.filter(x=>String(x.id)!==String(p.id));mark()}};row.append(edit,del);holder.append(row)});
+ const holder=$('items-admin');holder.replaceChildren();data.products.forEach(p=>{const row=element('div','admin-item');row.append(element('span','',p.name+' · '+(p.category||inferCategory(p))));const edit=element('button','secondary','עריכה');edit.onclick=()=>{const fields={id:'item-id',name:'item-name',store:'item-store',url:'item-url',price:'item-price',img:'item-image',type:'item-type',category:'item-category',fallbackImg:'item-fallback-image'};Object.entries(fields).forEach(([key,id])=>$(id).value=p[key]??(key==='category'?inferCategory(p):''));renderItemSubcategories();$('item-subcategory').value=p.subcategory||'';$('item-colors').value=(p.colors||[]).join(', ');$('edit-title').textContent='עריכת פריט';$('item-save-status').textContent='';previewItemImage();$('item-form').scrollIntoView({behavior:'smooth'})};const del=element('button','secondary','מחיקה');del.onclick=()=>{if(confirm('למחוק את הפריט?')){data.products=data.products.filter(x=>String(x.id)!==String(p.id));if(String(p.id).startsWith('raz-20261117-')){data.deletedCuratedIds??=[];if(!data.deletedCuratedIds.includes(p.id))data.deletedCuratedIds.push(p.id)}mark()}};row.append(edit,del);holder.append(row)});
 }
+function openRequestedEdit(){if(!boardLoaded||!currentAdmin||!isAdminPage)return;const id=sessionStorage.getItem('raz-edit-edit-item');if(!id)return;const p=data.products.find(x=>String(x.id)===id);if(!p)return;sessionStorage.removeItem('raz-edit-edit-item');const fields={id:'item-id',name:'item-name',store:'item-store',url:'item-url',price:'item-price',img:'item-image',type:'item-type',category:'item-category',fallbackImg:'item-fallback-image'};Object.entries(fields).forEach(([key,input])=>$(input).value=p[key]??(key==='category'?inferCategory(p):''));renderItemSubcategories();$('item-subcategory').value=p.subcategory||'';$('item-colors').value=(p.colors||[]).join(', ');$('edit-title').textContent='עריכת פריט';previewItemImage();requestAnimationFrame(()=>$('admin-add-item').scrollIntoView({behavior:'smooth',block:'start'}))}
 function renderSubcategories(){const c=$('subcat-parent').value,host=$('subcategories-admin');host.replaceChildren();(data.subcategories[c]||[]).forEach(value=>{const row=element('div','admin-item');row.append(element('span','',value));const del=element('button','secondary','מחיקה');del.onclick=()=>{if(data.products.some(p=>p.category===c&&p.subcategory===value)){alert('קודם הסירי את שיוך תת־הקטגוריה מהפריטים');return}data.subcategories[c]=data.subcategories[c].filter(x=>x!==value);mark()};row.append(del);host.append(row)})}function renderItemSubcategories(){const c=$('item-category').value,sel=$('item-subcategory'),prev=sel.value;sel.replaceChildren(new Option('ללא תת־קטגוריה',''));(data.subcategories[c]||[]).forEach(x=>sel.append(new Option(x,x)));sel.value=(data.subcategories[c]||[]).includes(prev)?prev:''}$('subcat-parent').onchange=renderSubcategories;$('item-category').onchange=renderItemSubcategories;$('add-subcategory').onclick=()=>{const c=$('subcat-parent').value,value=$('new-subcategory').value.trim();if(!c||!value)return;data.subcategories[c]??=[];if(data.subcategories[c].includes(value)){alert('תת־הקטגוריה כבר קיימת');return}data.subcategories[c].push(value);$('new-subcategory').value='';mark()};$('add-category').onclick=()=>{const c=$('new-category').value.trim();if(!c)return;if(data.categories.includes(c)){alert('הקטגוריה כבר קיימת');return}data.categories.push(c);$('new-category').value='';mark()};
-function clearForm(){$('item-form').reset();renderItemSubcategories();$('item-id').value='';$('edit-title').textContent='הוספת פריט';$('item-category').value=data.categories[0]||''}
+let toastTimeout;
+function showSaveToast(message,isError=false){const toast=$('save-toast');toast.textContent=message;toast.classList.toggle('error',isError);toast.classList.remove('hidden');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toast.classList.add('hidden'),isError?6000:2800)}
+function previewItemImage(){
+ const value=$('item-image').value.trim()||$('item-fallback-image').value.trim();const image=$('item-image-preview'),status=$('item-image-status');
+ image.classList.add('hidden');image.removeAttribute('src');image.onerror=null;
+ if(!value){status.textContent='אפשר להוסיף כתובת תמונה. התמונה תופיע כאן לבדיקה.';return}
+ if(!value.startsWith('data:image/')&&!/^https:\/\//i.test(value)){status.textContent='נדרש קישור ישיר לתמונה שמתחיל ב־https://';return}
+ status.textContent='בודקת שהתמונה נטענת...';
+ image.onload=()=>{image.classList.remove('hidden');status.textContent='התמונה נטענת בהצלחה ותוצג בפריט אחרי השמירה.'};
+ image.onerror=()=>{image.classList.add('hidden');status.textContent='התמונה לא נטענת מהקישור הזה. אפשר להחליף לקישור ישיר לתמונה.'};
+ image.src=value;
+}
+$('item-image').addEventListener('change',previewItemImage);
+$('item-fallback-image').addEventListener('change',previewItemImage);
+function clearForm(){
+ $('item-form').reset();$('item-id').value='';$('edit-title').textContent='הוספת פריט';
+ $('item-category').value=data.categories[0]||'';renderItemSubcategories();
+ $('item-save-status').textContent='';previewItemImage();
+}
 $('cancel-edit').onclick=clearForm;
-$('item-form').onsubmit=e=>{e.preventDefault();const old=$('item-id').value;const p={id:old||String(Date.now()),subcategory:$('item-subcategory').value,featured:old?(data.products.find(x=>String(x.id)===old)?.featured!==false):true,name:$('item-name').value.trim(),store:$('item-store').value.trim(),url:$('item-url').value.trim(),price:$('item-price').value.trim(),img:$('item-image').value.trim(),type:$('item-type').value.trim(),colors:$('item-colors').value.split(',').map(x=>x.trim()).filter(Boolean),category:$('item-category').value||'Pieces worth sharing'};if(!/^https:\/\//i.test(p.url)){alert('יש להזין קישור HTTPS תקין');return}if(old){const i=data.products.findIndex(x=>String(x.id)===old);if(i>=0)data.products[i]=p}else data.products.unshift(p);clearForm();mark()};
+let itemSaving=false;
+async function persistBoard(){
+ if(!client)client=buildClient();
+ if(!client)throw new Error('אין חיבור ל־Supabase');
+ if(!await checkAdmin())throw new Error('לא נמצאה הרשאת מנהלת בחשבון המחובר');
+ if(!boardLoaded||!Array.isArray(data.products)||!data.products.length)throw new Error('רשימת הפריטים עדיין לא נטענה. השינויים לא נשמרו');
+ const {error}=await client.from('board_content').upsert({
+  id:1,content:data,updated_at:new Date().toISOString()
+ },{onConflict:'id'});
+ if(error)throw error;
+ dirty=false;
+ $('dirty').textContent='כל השינויים נשמרו ♡';
+}
+$('item-form').onsubmit=async e=>{
+ e.preventDefault();
+ if(itemSaving)return;
+ const status=$('item-save-status'),button=$('save-item');
+ if(!boardLoaded){status.textContent='הפריטים עדיין נטענים; לא בוצעה שמירה. הפרטים יישארו בטופס.';showSaveToast('לא ניתן לשמור לפני טעינת הפריטים',true);return}
+ const old=$('item-id').value;
+ const p={
+  id:old||String(Date.now()),subcategory:$('item-subcategory').value,
+  featured:old?(data.products.find(x=>String(x.id)===old)?.featured!==false):true,
+  name:$('item-name').value.trim(),store:$('item-store').value.trim(),
+  url:$('item-url').value.trim(),price:$('item-price').value.trim(),
+  img:$('item-image').value.trim(),fallbackImg:$('item-fallback-image').value.trim(),
+  type:$('item-type').value.trim(),
+  colors:cleanColors($('item-colors').value.split(',')),
+  category:$('item-category').value||'חולצות'
+ };
+ if(!p.name||!p.store){status.textContent='יש למלא שם פריט וחנות';return}
+ if(!/^https:\/\//i.test(p.url)){status.textContent='יש להזין קישור HTTPS תקין';return}
+ if([p.img,p.fallbackImg].some(v=>v&&!/^https:\/\//i.test(v)&&!v.startsWith('data:image/'))){status.textContent='קישורי תמונה חייבים להיות HTTPS';return}
+ const original=structuredClone(data.products);
+ if(old){
+  const i=data.products.findIndex(x=>String(x.id)===old);
+  if(i<0){status.textContent='הפריט לעריכה לא נמצא ברשימה';return}
+  data.products[i]=p;
+ }else data.products.unshift(p);
+ itemSaving=true;button.disabled=true;button.textContent='שומרת...';
+ status.textContent='שומרת את הפריט באתר...';
+ try{
+  await persistBoard();
+  $('item-id').value=String(p.id);
+  $('edit-title').textContent='עריכת פריט';
+  status.textContent='הפריט נשמר בהצלחה באתר. הפרטים נשארו פתוחים לעריכה נוספת.';
+  showSaveToast('✓ הפריט נשמר בהצלחה');
+  if(currentAdmin&&isAdminPage)renderAdmin();
+  draw();
+ }catch(error){
+  data.products=original;
+  status.textContent='השמירה נכשלה: '+(error?.message||'שגיאה לא מוכרת')+'. הפרטים נשארו בטופס ואפשר לנסות שוב.';showSaveToast('השמירה נכשלה. הפרטים נשארו בטופס.',true);
+ }finally{itemSaving=false;button.disabled=false;button.textContent='שמירת פריט באתר'}
+};
 $('copy-url').onclick=()=>navigator.clipboard.writeText(location.origin+location.pathname).then(()=>alert('הקישור הועתק'));
-const api='https://api.github.com/repos/'+repo+'/contents/data.json';
-function headers(){return {'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'}}
-$('connect').onclick=async()=>{token=$('token').value.trim();if(!token){$('message').textContent='יש להזין טוקן';return}try{const r=await fetch('https://api.github.com/user',{headers:headers()});if(!r.ok)throw Error('הטוקן לא תקין');const user=await r.json();const p=await fetch('https://api.github.com/repos/'+repo,{headers:headers()});if(!p.ok)throw Error('אין גישה למאגר');const info=await p.json();if(!info.permissions?.push)throw Error('למשתמש הזה אין הרשאת כתיבה למאגר');const file=await fetch(api,{headers:headers()});if(file.ok){const f=await file.json();sha=f.sha}else if(file.status===404){sha=null}else throw Error('לא ניתן לקרוא את קובץ הנתונים');$('message').textContent='מחוברת בתור '+user.login;$('token').value='';$('editing').classList.remove('hidden');renderAdmin()}catch(e){token='';$('message').textContent=e.message}};
-$('publish').onclick=async()=>{if(!token){alert('יש להתחבר מחדש');return}if(!dirty){alert('אין שינויים לפרסום');return}const btn=$('publish');btn.disabled=true;btn.textContent='מפרסמת...';try{const content=btoa(Array.from(new TextEncoder().encode(JSON.stringify(data,null,2)),b=>String.fromCharCode(b)).join(''));const payload={message:'Update shopping board from Admin Studio',content,branch:'main'};if(sha)payload.sha=sha;const r=await fetch(api,{method:'PUT',headers:Object.assign({'Content-Type':'application/json'},headers()),body:JSON.stringify(payload)});const out=await r.json();if(!r.ok)throw Error(out.message||'הפרסום נכשל');sha=out.content.sha;dirty=false;$('dirty').textContent='העדכונים פורסמו בהצלחה ♡';alert('העדכונים נשמרו ב-GitHub!')}catch(e){alert('לא הצלחנו לפרסם: '+e.message)}finally{btn.disabled=false;btn.textContent='פרסום כל השינויים באתר'}};
-load();
+let lookupLastUrl='',lookupBusy=false;
+async function lookupProduct(){
+ if(lookupBusy||$('item-id').value)return;
+ const url=$('item-url').value.trim();
+ if(!/^https:\/\//i.test(url))return;
+ client=client||buildClient();
+ if(!client){$('lookup-status').textContent='לא הוגדר חיבור למסד הנתונים. אפשר להזין פרטים ידנית.';return}
+ if(!await checkAdmin()){$('lookup-status').textContent='כדי לזהות מוצר יש להתחבר תחילה כמנהלת.';return}
+ lookupBusy=true;$('lookup-product').disabled=true;$('lookup-status').textContent='מחפשת את שם הפריט והתמונה...';
+ try{
+ const {data:result,error}=await client.functions.invoke('product-lookup',{body:{url}});
+ if(error)throw error;
+ if($('item-url').value.trim()!==url)return;
+ if(result?.name&&!$('item-name').value.trim())$('item-name').value=result.name;
+ if(result?.store&&!$('item-store').value.trim())$('item-store').value=result.store;
+ if(result?.image&&!$('item-image').value.trim())$('item-image').value=result.image;
+ $('lookup-status').textContent=result?.message||'אפשר לבדוק ולערוך את הפרטים לפני השמירה.';
+ }catch(e){$('lookup-status').textContent='לא הצלחתי לזהות פרטים אוטומטית. אפשר להוסיף שם ותמונה ידנית.'}
+ finally{lookupBusy=false;$('lookup-product').disabled=false}
+}
+$('lookup-product').onclick=lookupProduct;
+$('item-url').addEventListener('change',()=>{const url=$('item-url').value.trim();if(url&&url!==lookupLastUrl){lookupLastUrl=url;lookupProduct()}});
+function buildClient(){const c=window.RAZ_SUPABASE_CONFIG;if(!c?.url||!c?.publishableKey||!window.supabase?.createClient)return null;return window.supabase.createClient(c.url,c.publishableKey)}
+function showMessage(message){$('message').textContent=message}
+let authMode='login';
+function switchAuthMode(mode){
+ authMode=mode;
+ $('login-title').textContent=mode==='signup'?'הרשמה לבורד':mode==='reset'?'איפוס סיסמה':mode==='recovery'?'בחירת סיסמה חדשה':'ברוכה הבאה';
+ $('auth-description').textContent=mode==='signup'?'צרי חשבון כדי לשמור את הפרטים שלך. לאחר אימות האימייל תוכלי להתחבר.':mode==='reset'?'נשלח לך קישור לאיפוס הסיסמה באימייל.':mode==='recovery'?'הקלידי סיסמה חדשה לחשבון שלך.':'התחברי עם האימייל והסיסמה שלך';
+ $('signup-name-wrap').classList.toggle('hidden',mode!=='signup');
+ $('admin-email').classList.toggle('hidden',mode==='recovery');
+ $('admin-password').classList.toggle('hidden',mode==='reset');
+ $('admin-email').required=mode!=='recovery';
+ $('admin-password').required=mode!=='reset';
+ $('admin-password').autocomplete=mode==='signup'||mode==='recovery'?'new-password':'current-password';
+ $('connect').textContent=mode==='signup'?'הרשמה':mode==='reset'?'שליחת קישור לאיפוס':mode==='recovery'?'שמירת סיסמה חדשה':'התחברות';
+ $('switch-signup').classList.toggle('hidden',mode!=='login');
+ $('switch-login').classList.toggle('hidden',mode==='login'||mode==='recovery');
+ $('forgot-password').classList.toggle('hidden',mode!=='login');
+ $('login-error').textContent='';
+}
+function openLogin(mode='login'){
+ if(!client)client=buildClient();
+ switchAuthMode(mode);
+ $('login-screen').classList.remove('hidden');
+ if(!client)$('login-error').textContent='ההתחברות אינה זמינה כרגע';
+ if(mode==='recovery')$('admin-password').focus();else $('admin-email').focus();
+}
+function closeLogin(){if(authMode==='recovery')return;$('login-screen').classList.add('hidden');$('admin-password').value=''}
+$('switch-signup').onclick=()=>switchAuthMode('signup');
+$('switch-login').onclick=()=>switchAuthMode('login');
+$('forgot-password').onclick=()=>switchAuthMode('reset');
+$('header-login').onclick=()=>openLogin();
+$('admin-sign-in').onclick=()=>openLogin();
+$('login-close').onclick=closeLogin;
+$('login-screen').addEventListener('click',event=>{if(event.target===$('login-screen'))closeLogin()});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeLogin()});
+$('header-logout').onclick=async()=>{if(client)await client.auth.signOut();await refreshAccount();if(isAdminPage)location.href=location.pathname};
+$('header-manage').onclick=()=>{location.href=location.pathname+'?admin=1'};
+$('header-add').onclick=()=>{if(!currentAdmin)return;sessionStorage.setItem('raz-edit-jump-add','1');location.href=location.pathname+'?admin=1'};
+$('jump-add-item').onclick=()=>{clearForm();$('admin-add-item').scrollIntoView({behavior:'smooth',block:'start'});$('item-url').focus()};
+$('jump-categories').onclick=()=>$('admin-categories').scrollIntoView({behavior:'smooth',block:'start'});
+async function checkAdmin(){if(!client)return false;const {data:{user},error}=await client.auth.getUser();if(error||!user)return false;const {data:profile,error:profileError}=await client.from('profiles').select('role').eq('id',user.id).maybeSingle();return !profileError&&profile?.role==='admin'}
+function displayName(user){const name=user.user_metadata?.full_name||user.user_metadata?.name||user.email?.split('@')[0]||'משתמשת';return String(name).trim().slice(0,30)}
+async function refreshAccount(){
+ if(!client)client=buildClient();
+ let user=null;
+ if(client){const result=await client.auth.getUser();if(!result.error)user=result.data.user}
+ currentAdmin=false;
+ if(user){const {data:profile}=await client.from('profiles').select('role').eq('id',user.id).maybeSingle();currentAdmin=profile?.role==='admin'}
+ $('user-greeting').textContent=user?'שלום '+displayName(user):'שלום אורח';
+ $('header-login').classList.toggle('hidden',!!user);
+ $('header-logout').classList.toggle('hidden',!user);
+ $('header-add').classList.toggle('hidden',!currentAdmin);
+ $('header-manage').classList.toggle('hidden',!currentAdmin);
+ $('editing').classList.toggle('hidden',!currentAdmin);
+ $('admin-sign-in').classList.toggle('hidden',!!user);
+ if(isAdminPage){
+  showMessage(!user?'כדי לנהל את הבורד, התחברי לחשבון מנהלת.':currentAdmin?'מחוברת כמנהלת ♡': 'החשבון מחובר לצפייה בלבד, ללא הרשאות ניהול.');
+  if(currentAdmin){
+   renderAdmin();openRequestedEdit();
+   if(sessionStorage.getItem('raz-edit-jump-add')==='1'){
+    sessionStorage.removeItem('raz-edit-jump-add');
+    requestAnimationFrame(()=>$('jump-add-item').click());
+   }
+  }
+ }
+}
+$('login-form').onsubmit=async(event)=>{
+ event.preventDefault();
+ client=client||buildClient();
+ if(!client){$('login-error').textContent='לא ניתן להתחבר כרגע';return}
+ const button=$('connect'),mode=authMode;
+ button.disabled=true;button.textContent='רגע...';
+ const email=$('admin-email').value.trim(),password=$('admin-password').value;
+ const redirect=location.origin+location.pathname;
+ try{
+  if(mode==='signup'){
+   const full_name=$('signup-name').value.trim();
+   if(!full_name){$('login-error').textContent='צריך למלא שם לתצוגה';return}
+   const {data:result,error}=await client.auth.signUp({email,password,options:{emailRedirectTo:redirect,data:{full_name}}});
+   if(error)throw error;
+   $('login-error').textContent='אם ניתן לרשום את הכתובת, יישלח אליה מייל לאימות. בדקי גם בתיקיית הספאם.';
+   if(result.session){await refreshAccount();closeLogin()}
+   return;
+  }
+  if(mode==='reset'){
+   const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:redirect});
+   if(error)throw error;
+   $('login-error').textContent='אם יש חשבון לכתובת הזאת, יישלח קישור לאיפוס הסיסמה. בדקי גם בספאם.';
+   return;
+  }
+  if(mode==='recovery'){
+   const {error}=await client.auth.updateUser({password});
+   if(error)throw error;
+   authMode='login';$('login-screen').classList.add('hidden');$('admin-password').value='';
+   await refreshAccount();
+   window.history.replaceState({},'',location.pathname);
+   alert('הסיסמה עודכנה בהצלחה');
+   return;
+  }
+  const {error}=await client.auth.signInWithPassword({email,password});
+  if(error)throw error;
+  closeLogin();await refreshAccount();
+ }catch(error){$('login-error').textContent=mode==='login'?'ההתחברות נכשלה. בדקי אימייל וסיסמה.':'הפעולה נכשלה: '+(error?.message||'נסי שוב')}
+ finally{button.disabled=false;button.textContent=authMode==='signup'?'הרשמה':authMode==='reset'?'שליחת קישור לאיפוס':authMode==='recovery'?'שמירת סיסמה חדשה':'התחברות'}
+};
+
+$('publish').onclick=async()=>{
+ const button=$('publish');
+ if(!dirty){showMessage('אין שינויים לשמירה');return}
+ button.disabled=true;button.textContent='שומרת...';
+ try{
+  await persistBoard();
+  showMessage('השינויים נשמרו במסד הנתונים');
+ }catch(error){showMessage('השמירה נכשלה: '+(error?.message||'שגיאה לא מוכרת'))}
+ finally{button.disabled=false;button.textContent='שמירת השינויים בבורד'}
+};
+$('invite-user').onclick=async()=>{if(!client||!await checkAdmin()){$('invite-status').textContent='נדרשת התחברות מנהלת';return}const email=$('invite-email').value.trim();if(!email){$('invite-status').textContent='יש להזין אימייל';return}const {data,error}=await client.functions.invoke('invite-user',{body:{email}});$('invite-status').textContent=error?'ההזמנה נכשלה: '+error.message:(data?.ok?'ההזמנה נשלחה ♡':data?.error||'לא ניתן לשלוח את ההזמנה')};
+
+
+document.addEventListener('DOMContentLoaded',load);
 </script></body></html>

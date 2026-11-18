@@ -1,0 +1,829 @@
+{
+  "products": [
+    {
+      "id": "raz-20261117-216140909",
+      "name": "ג׳קט קלואי",
+      "store": "רנואר",
+      "url": "https://renuar.co.il/products/216140909",
+      "price": "149.90 ₪",
+      "img": "https://renuar.co.il/cdn/shop/files/216140909-1.jpg?v=1767186705&width=1800",
+      "fallbackImg": "",
+      "type": "ג׳קט",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-w845710008",
+      "name": "מעיל טרנץ׳ קצר – YANGA",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/w845710008?color=7",
+      "price": "199.95 ₪",
+      "img": "data:image/jpeg;base64,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",
+      "fallbackImg": "",
+      "type": "מעיל טרנץ׳ קצר",
+      "colors": [
+        "אפור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-w846370018",
+      "name": "מעיל טרנץ׳ ארוך בשילוב חגורה – YANGA",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/w846370018?color=17762",
+      "price": "214.95 ₪",
+      "img": "data:image/jpeg;base64,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",
+      "fallbackImg": "",
+      "type": "מעיל טרנץ׳ ארוך",
+      "colors": [
+        "לבן"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-r478915200",
+      "name": "מעיל דמוי פרווה – AMERICAN EAGLE",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/r478915200?color=9174",
+      "price": "274.95 ₪",
+      "img": "data:image/jpeg;base64,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",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי פרווה",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-r602330007",
+      "name": "מעיל ארוך – MANGO",
+      "store": "טרמינל איקס",
+      "url": "https://www.terminalx.com/r602330007?color=22",
+      "price": "194.97 ₪",
+      "img": "data:image/jpeg;base64,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",
+      "fallbackImg": "",
+      "type": "מעיל ארוך",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-217162028",
+      "name": "מעיל רובי",
+      "store": "רנואר",
+      "url": "https://renuar.co.il/products/217162028",
+      "price": "259.90 ₪",
+      "img": "https://renuar.co.il/cdn/shop/files/217162028-1.jpg?width=900",
+      "fallbackImg": "https://renuar.co.il/cdn/shop/files/217162028-2.jpg?width=900",
+      "type": "ג׳קט",
+      "colors": [
+        "אדום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261117-217161582",
+      "name": "מעיל טרנץ׳ משובץ",
+      "store": "רנואר",
+      "url": "https://renuar.co.il/products/217161582",
+      "price": "259.90 ₪",
+      "img": "data:image/jpeg;base64,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",
+      "fallbackImg": "",
+      "type": "ג׳קט משובץ",
+      "colors": [
+        "חום",
+        "שחור",
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209603965",
+      "name": "ג׳קט ג׳ינס אוברסייז – Miss Selfridge",
+      "store": "ASOS",
+      "url": "https://www.asos.com/miss-selfridge/miss-selfridge-oversized-denim-jacket-in-blue-wash/prd/209603965",
+      "price": "£42.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/miss-selfridge-oversized-denim-jacket-in-blue-wash/209603965-1-bluewash?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט ג׳ינס",
+      "colors": [
+        "כחול"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208102257",
+      "name": "מעיל ארוך עם כפתורים כפולים – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-clean-double-breasted-longline-coat-in-burgundy/prd/208102257",
+      "price": "£55.25 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/topshop-clean-double-breasted-longline-coat-in-burgundy/208102257-1-burgundy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל ארוך",
+      "colors": [
+        "בורדו"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209241224",
+      "name": "מעיל מחויט – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-formal-coat-in-camel/prd/209241224",
+      "price": "£44.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/new-look-formal-coat-in-camel/209241224-1-17camel?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל מחויט",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210377233",
+      "name": "טרנץ׳ קליל קצר – Vero Moda",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vero-moda/vero-moda-lightweight-cropped-trench-coat-in-oatmeal/prd/210377233",
+      "price": "£36.00 (ASOS UK)",
+      "img": "https://cdna.lystit.com/1040/1300/n/photos/asos/aba8af20/vero-moda-Neutral-Lightweight-Cropped-Trench-Coat.jpeg",
+      "fallbackImg": "",
+      "type": "ג׳קט טרנץ׳ קצר",
+      "colors": [
+        "בז׳",
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208044394",
+      "name": "ג׳קט בומבר דמוי שירלינג אוברסייז – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-oversized-funnel-tab-detail-shearling-bomber-in-brown/prd/208044394",
+      "price": "£58.50 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/topshop-oversized-funnel-tab-detail-shearling-bomber-in-brown/208044394-1-brown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט בומבר",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209121951",
+      "name": "מעיל ארוך מחויט עם חגורה נמוכה – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-dropped-belt-longline-formal-coat-in-charcoal/prd/209121951",
+      "price": "£51.75 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/topshop-dropped-belt-longline-formal-coat-in-charcoal/209121951-1-charcoal?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל מחויט",
+      "colors": [
+        "אפור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209495251",
+      "name": "מעיל צווארון גבוה עם כפתורים – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-funnel-neck-button-down-coat-in-mink/prd/209495251",
+      "price": "£39.10 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/new-look-funnel-neck-button-down-coat-in-mink/209495251-1-mink?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209175931",
+      "name": "מעיל בז׳ בהיר – Monki",
+      "store": "ASOS",
+      "url": "https://www.asos.com/monki/monki-coat-in-light-beige/prd/209175931",
+      "price": "£42.00 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/monki-coat-in-light-beige/209175931-1-lightbeige?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210702767",
+      "name": "ג׳קט חולצה עם כפתורים – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-button-down-shacket-in-burgundy/prd/210702767",
+      "price": "",
+      "img": "https://images.asos-media.com/products/new-look-button-down-shacket-in-burgundy/210702767-1-burgundy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט חולצה",
+      "colors": [
+        "בורדו"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210498603",
+      "name": "ג׳קט טרנץ׳ קצר אסימטרי – Threadbare",
+      "store": "ASOS",
+      "url": "https://www.asos.com/threadbare/threadbare-short-trench-jacket-with-asymmetric-detail-in-stone/prd/210498603",
+      "price": "",
+      "img": "https://images.asos-media.com/products/threadbare-short-trench-jacket-with-asymmetric-detail-in-stone/210498603-1-stone?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "טרנץ׳ קצר",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211142050",
+      "name": "ג׳קט דמוי זמש – ONLY",
+      "store": "ASOS",
+      "url": "https://www.asos.com/only/only-faux-suede-jacket-in-light-brown/prd/211142050",
+      "price": "",
+      "img": "https://images.asos-media.com/products/only-faux-suede-jacket-in-light-brown/211142050-1-lightbrown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי זמש",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209493214",
+      "name": "ג׳קט בומבר כותנה – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-washed-cotton-bomber-jacket-in-cream/prd/209493214",
+      "price": "£29.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/asos-design-washed-cotton-bomber-jacket-in-cream/209493214-1-cream?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "בומבר",
+      "colors": [
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208739857",
+      "name": "ג׳קט בארן עם צווארון מנוגד – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-zip-through-barn-jacket-with-contrast-pu-collar-in-tan-tan/prd/208739857",
+      "price": "£33.75 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/topshop-zip-through-barn-jacket-with-contrast-pu-collar-in-tan-tan/208739857-1-tan?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט בארן",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209450696",
+      "name": "ג׳קט קצר עם צווארון מודגש – New Look",
+      "store": "ASOS",
+      "url": "https://www.asos.com/new-look/new-look-bonded-collar-short-jacket-in-brown/prd/209450696",
+      "price": "£45.50 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/new-look-bonded-collar-short-jacket-in-brown/209450696-1-brown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט קצר",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209349499",
+      "name": "מעיל מחויט בדוגמת פישבון – Vero Moda",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vero-moda/vero-moda-tailored-herringbone-wool-mix-coat-in-taupe-brown/prd/209349499",
+      "price": "£51.00 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/vero-moda-tailored-herringbone-wool-mix-coat-in-taupe-brown/209349499-1-taupebrown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל מחויט",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209452626",
+      "name": "ג׳קט בייקר דמוי עור אוברסייז – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-slouchy-leather-look-oversized-biker-jacket-in-burgundy/prd/209452626",
+      "price": "£25.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/asos-design-slouchy-leather-look-oversized-biker-jacket-in-burgundy/209452626-1-burgundy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי עור",
+      "colors": [
+        "בורדו"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209037269",
+      "name": "ג׳קט קצר עם כיסים גדולים – VILA",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vila/vila-short-faux-wool-jacket-with-exaggerated-pockets-in-light-brown/prd/209037269",
+      "price": "£19.20 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/vila-short-faux-wool-jacket-with-exaggerated-pockets-in-light-brown/209037269-1-lightbrown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי צמר",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208047335",
+      "name": "מעיל אוברסייז בגוון פטרייה – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-oversized-dad-coat-in-mushroom-melange/prd/208047335",
+      "price": "£38.25 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/asos-design-oversized-dad-coat-in-mushroom-melange/208047335-1-mushroommelange?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל אוברסייז",
+      "colors": [
+        "חום",
+        "אפור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209467140",
+      "name": "טרנץ׳ קצר עם כיסי יוטיליטי וגב קייפ – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-utility-pocket-short-cape-back-trench-with-cotton-and-water-repellent-finish-in-navy/prd/209467140",
+      "price": "£22.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/asos-design-utility-pocket-short-cape-back-trench-with-cotton-and-water-repellent-finish-in-navy/209467140-1-navy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "טרנץ׳ קצר",
+      "colors": [
+        "כחול"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210370133",
+      "name": "ג׳קט הרינגטון מחויט עם צווארון גבוה – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-funnel-harrington-formal-jacket-in-black/prd/210370133",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-funnel-harrington-formal-jacket-in-black/210370133-1-black?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט הרינגטון",
+      "colors": [
+        "שחור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210787178",
+      "name": "ג׳קט בומבר דמוי עור אוברסייז – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-oversized-leather-look-bomber-jacket-in-black/prd/210787178",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-oversized-leather-look-bomber-jacket-in-black/210787178-1-black?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט בומבר דמוי עור",
+      "colors": [
+        "שחור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209505746",
+      "name": "ג׳קט דמוי פרווה קצר – River Island",
+      "store": "ASOS",
+      "url": "https://www.asos.com/river-island/river-island-cropped-faux-fur-jacket-in-brown/prd/209505746",
+      "price": "£39.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/river-island-cropped-faux-fur-jacket-in-brown/209505746-1-brown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי פרווה",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208549585",
+      "name": "מעיל ארוך עם צמר וכפתורים כפולים – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-unlined-double-breasted-longline-coat-with-wool-in-chocolate/prd/208549585",
+      "price": "£36.00 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/topshop-unlined-double-breasted-longline-coat-with-wool-in-chocolate/208549585-1-chocolate?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל ארוך",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1367399001",
+      "name": "ג׳קט אוברסייז עם ציפוי",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1367399001.html",
+      "price": "209.25 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט עם ציפוי",
+      "colors": [
+        "שחור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1345680002",
+      "name": "ג׳קט קצר עם צווארון גבוה",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1345680002.html",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט קצר",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1354171004",
+      "name": "ג׳קט קצר עם צווארון גבוה בדוגמת חום",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1354171004.html",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט בדוגמה",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1354175001",
+      "name": "ג׳קט מוברש עם צווארון גבוה",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1354175001.html",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט מוברש",
+      "colors": [
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1362177001",
+      "name": "קרדיגן אוברסייז סרוק",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1362177001.html",
+      "price": "299.00 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "קרדיגן",
+      "colors": [
+        "שחור"
+      ],
+      "category": "סריגים",
+      "subcategory": "קרדיגנים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-05774101-004",
+      "name": "ג׳קט בלון במגע רך",
+      "store": "Stradivarius",
+      "url": "https://www.stradivarius.com/il/גקט-בלון-במגע-רך-l05774101?colorId=004&xs=13&pelement=511314090",
+      "price": "199.00 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט בלון",
+      "colors": [
+        "לבן",
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-01788638-430",
+      "name": "מעיל טרנץ׳ קצר בגזרה משוחררת עם חגורה",
+      "store": "Stradivarius",
+      "url": "https://www.stradivarius.com/il/מעיל-טרנץ-קצר-בגזרה-משוחררת-עם-חגורה-l01788638?colorId=430&xs=13&pelement=511314651",
+      "price": "199.00 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טרנץ׳ קצר",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-ber-229723163-800",
+      "name": "ג׳קט דמוי עור",
+      "store": "Bershka",
+      "url": "https://www.bershka.com/il/ג'קט-דמוי-עור-c0p229723163.html?colorId=800",
+      "price": "229.00 ₪",
+      "img": "https://static.bershka.net/assets/public/d424/b04e/6b2d4cfb9b65/d7535fd9bf19/01524718800-p/01524718800-p.jpg?ts=1782802522116&w=1920",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי עור",
+      "colors": [
+        "שחור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-ber-226926943-712",
+      "name": "ג׳קט אופנוענים קצר דו־צדדי",
+      "store": "Bershka",
+      "url": "https://www.bershka.com/il/ג'קט-אופנוענים-קצר-דו-צדדי-c0p226926943.html?colorId=712",
+      "price": "299.00 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט אופנוענים",
+      "colors": [
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-08073251-613029053",
+      "name": "ג׳קט דו־צדדי",
+      "store": "ZARA",
+      "url": "https://www.zara.com/il/he/ג-קט-דו-צדדי-p08073251.html?v1=613029053",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט דו־צדדי",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-04344652-545490384",
+      "name": "ג׳קט בומבר עם צווארון רחב",
+      "url": "https://www.zara.com/il/he/ג-קט-bomber-עם-צווארון-רחב-p04344652.html?v1=545490384",
+      "type": "ג׳קט בומבר",
+      "store": "ZARA",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-05070666-598725468",
+      "name": "ג׳קט בומבר עם לשוניות",
+      "url": "https://www.zara.com/il/he/ג-קט-בומבר-עם-לשוניות-p05070666.html?v1=598725468",
+      "type": "ג׳קט בומבר",
+      "store": "ZARA",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-zara-01255710-545446683",
+      "name": "ג׳קט עם צווארון גבוה וכיסים",
+      "url": "https://www.zara.com/il/he/ג-קט-עם-צווארון-גבוה-וכיסים-p01255710.html?v1=545446683",
+      "type": "ג׳קט",
+      "store": "ZARA",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "colors": [],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211564457",
+      "name": "ג׳קט קצר במראה צמר עם סגירת לולאות – Vero Moda",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vero-moda/vero-moda-wool-look-short-jacket-with-toggle-closures-in-neutral/prd/211564457",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט קצר",
+      "colors": [
+        "בז׳"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-206945151",
+      "name": "טופ מעטפת כפול עם קשירת קולר ותחרה – Fashionkilla",
+      "store": "ASOS",
+      "url": "https://www.asos.com/fashionkilla/fashionkilla-exclusive-slinky-double-layered-wrap-halterneck-top-with-lace-trim-in-black/prd/206945151",
+      "price": "£28.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טופ קולר",
+      "colors": [
+        "שחור"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211648070",
+      "name": "טופ סאטן עם פרטי פאייטים – Motel",
+      "store": "ASOS",
+      "url": "https://www.asos.com/motel/motel-mercy-sequin-detail-satin-top-in-black/prd/211648070",
+      "price": "£28.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טופ סאטן",
+      "colors": [
+        "שחור"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210830111",
+      "name": "טופ גב פתוח עם עיטורים כסופים – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-premium-low-scoop-open-back-tank-top-with-heavy-silver-embellishment-in-off-white/prd/210830111",
+      "price": "£75.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "גופייה מעוטרת",
+      "colors": [
+        "לבן"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209617906",
+      "name": "גופיית כתפיות עם חרוזים – Abercrombie & Fitch",
+      "store": "ASOS",
+      "url": "https://www.asos.com/abercrombie-fitch/abercrombie-fitch-beaded-cami-in-white/prd/209617906?CTARef=Saved+Items+Image#variantId-209617932",
+      "price": "£39.99 (ASOS UK)",
+      "img": "https://images.asos-media.com/products/abercrombie-fitch-beaded-cami-in-white/209617906-1-white?%24n_750w%24=&fit=crop&hei=750&wid=750",
+      "fallbackImg": "",
+      "type": "גופיית כתפיות",
+      "colors": [
+        "לבן"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-211542665",
+      "name": "טופ קטיפה אסימטרי עם תחרה וקולר – VILA",
+      "store": "ASOS",
+      "url": "https://www.asos.com/vila/vila-lace-trim-asymmetric-halter-neck-velvet-top-in-brown/prd/211542665",
+      "price": "£28.00 (ASOS UK)",
+      "img": "",
+      "fallbackImg": "",
+      "type": "טופ קטיפה",
+      "colors": [
+        "חום"
+      ],
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-06649414-001",
+      "name": "טופ תחרה עם כתפיות רחבות – שחור",
+      "url": "https://www.stradivarius.com/il/טופ-תחרה-עם-כתפיות-רחבות-l06649414?colorId=001&pelement=513369992",
+      "price": "119.90 ₪",
+      "colors": [
+        "שחור"
+      ],
+      "type": "טופ תחרה",
+      "store": "Stradivarius",
+      "img": "",
+      "fallbackImg": "",
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-06625185-650",
+      "name": "טופ מחויט עם כתפיות רחבות",
+      "url": "https://www.stradivarius.com/il/טופ-מחויט-עם-כתפיות-רחבות-l06625185?colorId=650&pelement=511323714",
+      "price": "99.90 ₪",
+      "colors": [],
+      "type": "טופ מחויט",
+      "store": "Stradivarius",
+      "img": "",
+      "fallbackImg": "",
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-str-06649414-650",
+      "name": "טופ תחרה עם כתפיות רחבות – צבע נוסף",
+      "url": "https://www.stradivarius.com/il/טופ-תחרה-עם-כתפיות-רחבות-l06649414?colorId=650&pelement=513369993",
+      "price": "119.90 ₪",
+      "colors": [],
+      "type": "טופ תחרה",
+      "store": "Stradivarius",
+      "img": "",
+      "fallbackImg": "",
+      "category": "חולצות",
+      "subcategory": "חולצות ליציאה",
+      "featured": true
+    }
+  ]
+}
