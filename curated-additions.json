@@ -488,6 +488,88 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "מעילים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1367399001",
+      "name": "ג׳קט אוברסייז עם ציפוי",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1367399001.html",
+      "price": "209.25 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט עם ציפוי",
+      "colors": [
+        "שחור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1345680002",
+      "name": "ג׳קט קצר עם צווארון גבוה",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1345680002.html",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט קצר",
+      "colors": [
+        "חום כהה"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1354171004",
+      "name": "ג׳קט קצר עם צווארון גבוה בדוגמת חום",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1354171004.html",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט בדוגמה",
+      "colors": [
+        "חום",
+        "חום כהה",
+        "משובץ"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1354175001",
+      "name": "ג׳קט מוברש עם צווארון גבוה",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1354175001.html",
+      "price": "",
+      "img": "",
+      "fallbackImg": "",
+      "type": "ג׳קט מוברש",
+      "colors": [
+        "שמנת"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-hm-1362177001",
+      "name": "קרדיגן אוברסייז סרוק",
+      "store": "H&M",
+      "url": "https://www2.hm.com/hw_il/productpage.1362177001.html",
+      "price": "299.00 ₪",
+      "img": "",
+      "fallbackImg": "",
+      "type": "קרדיגן",
+      "colors": [
+        "שחור"
+      ],
+      "category": "סריגים",
+      "subcategory": "קרדיגנים",
+      "featured": true
     }
   ]
 }
