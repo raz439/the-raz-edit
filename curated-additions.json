@@ -86,8 +86,8 @@
       "store": "רנואר",
       "url": "https://renuar.co.il/products/217162028",
       "price": "259.90 ₪",
-      "img": "",
-      "fallbackImg": "",
+      "img": "https://renuar.co.il/cdn/shop/files/217162028-1.jpg?width=900",
+      "fallbackImg": "https://renuar.co.il/cdn/shop/files/217162028-2.jpg?width=900",
       "type": "ג׳קט",
       "colors": [
         "אדום"
