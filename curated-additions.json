@@ -408,6 +408,86 @@
       "category": "ג׳קטים ומעילים",
       "subcategory": "מעילים",
       "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209467140",
+      "name": "טרנץ׳ קצר עם כיסי יוטיליטי וגב קייפ – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-utility-pocket-short-cape-back-trench-with-cotton-and-water-repellent-finish-in-navy/prd/209467140",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-utility-pocket-short-cape-back-trench-with-cotton-and-water-repellent-finish-in-navy/209467140-1-navy?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "טרנץ׳ קצר",
+      "colors": [
+        "כחול נייבי"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210370133",
+      "name": "ג׳קט הרינגטון מחויט עם צווארון גבוה – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-funnel-harrington-formal-jacket-in-black/prd/210370133",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-funnel-harrington-formal-jacket-in-black/210370133-1-black?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט הרינגטון",
+      "colors": [
+        "שחור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-210787178",
+      "name": "ג׳קט בומבר דמוי עור אוברסייז – ASOS DESIGN",
+      "store": "ASOS",
+      "url": "https://www.asos.com/asos-design/asos-design-oversized-leather-look-bomber-jacket-in-black/prd/210787178",
+      "price": "",
+      "img": "https://images.asos-media.com/products/asos-design-oversized-leather-look-bomber-jacket-in-black/210787178-1-black?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט בומבר דמוי עור",
+      "colors": [
+        "שחור"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-209505746",
+      "name": "ג׳קט דמוי פרווה קצר – River Island",
+      "store": "ASOS",
+      "url": "https://www.asos.com/river-island/river-island-cropped-faux-fur-jacket-in-brown/prd/209505746",
+      "price": "",
+      "img": "https://images.asos-media.com/products/river-island-cropped-faux-fur-jacket-in-brown/209505746-1-brown?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "ג׳קט דמוי פרווה",
+      "colors": [
+        "חום"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "ג׳קטים",
+      "featured": true
+    },
+    {
+      "id": "raz-20261118-asos-208549585",
+      "name": "מעיל ארוך עם צמר וכפתורים כפולים – Topshop",
+      "store": "ASOS",
+      "url": "https://www.asos.com/topshop/topshop-unlined-double-breasted-longline-coat-with-wool-in-chocolate/prd/208549585",
+      "price": "",
+      "img": "https://images.asos-media.com/products/topshop-unlined-double-breasted-longline-coat-with-wool-in-chocolate/208549585-1-chocolate?$n_640w$=&fit=constrain&wid=800",
+      "fallbackImg": "",
+      "type": "מעיל ארוך",
+      "colors": [
+        "חום שוקולד"
+      ],
+      "category": "ג׳קטים ומעילים",
+      "subcategory": "מעילים",
+      "featured": true
     }
   ]
 }
