@@ -4,9 +4,9 @@ import html as html_lib
 import json
 import os
 import re
-import sys
 from html.parser import HTMLParser
 from urllib.error import HTTPError, URLError
+from urllib.parse import quote
 from urllib.request import Request, build_opener
 
 
@@ -157,8 +157,9 @@ def extract_metadata(document):
 
 
 def fetch(url):
+    encoded_url = quote(url, safe=":/?#[]@!$&'()*+,;=%")
     request = Request(
-        url,
+        encoded_url,
         headers={
             "User-Agent": USER_AGENT,
             "Accept": "text/html,application/xhtml+xml",
@@ -176,7 +177,7 @@ def fetch(url):
             return {
                 "status": status,
                 "final_url": final_url,
-                "redirected": final_url != url,
+                "redirected": final_url != encoded_url,
                 "content_type": content_type,
                 "body": body,
                 "error": None,
@@ -185,7 +186,7 @@ def fetch(url):
         return {
             "status": exc.code,
             "final_url": exc.geturl(),
-            "redirected": exc.geturl() != url,
+            "redirected": exc.geturl() != encoded_url,
             "content_type": exc.headers.get("Content-Type", "") if exc.headers else "",
             "body": "",
             "error": f"HTTPError: {exc.reason}",
