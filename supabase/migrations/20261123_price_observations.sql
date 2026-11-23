@@ -15,7 +15,12 @@ create table if not exists public.price_observations (
   availability jsonb not null default '[]'::jsonb,
   checked_at timestamptz not null default now(),
   error_code text,
-  error_message text
+  error_message text,
+  constraint price_observations_product_url_https check (product_url ~ '^https://'),
+  constraint price_observations_retailer_domain_allowlist check (retailer_domain = 'terminalx.com' or retailer_domain like '%.terminalx.com'),
+  constraint price_observations_price_nonnegative check (price is null or price >= 0),
+  constraint price_observations_currency_format check (currency is null or currency ~ '^[A-Z]{3}$'),
+  constraint price_observations_availability_array check (jsonb_typeof(availability) = 'array')
 );
 
 create index if not exists price_observations_product_checked_idx

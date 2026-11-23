@@ -24,6 +24,9 @@ This branch **is not deployed**. The published Netlify site and production branc
 1. Apply `supabase/migrations/20261123_price_observations.sql` after the base schema. It adds append-only observations and public read access only for rows marked `verified`.
 2. Add repository Actions secrets named `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. The service-role key is used only by Actions and must never be placed in frontend files or printed in logs.
 3. Run **Monitor Terminal X prices** manually from the Actions tab. The workflow reads `board_content`, checks only Terminal X URLs, and records verified or failed observations without changing `board_content`.
+   - The default `test_mode` is enabled. Supply the exact Terminal X product URL, including `?color=`, and keep `max_requests` at `1`.
+   - Test mode refuses to run unless the exact URL and selected color match one current board product.
+   - Only HTTPS Terminal X hosts and Terminal X redirect destinations are accepted; oversized responses and more than three redirects are rejected.
 4. The workflow is intentionally `workflow_dispatch` only. Do not add a schedule until a real product has been validated end to end.
 5. The frontend reads verified rows from `price_observations`; it keeps the existing catalogue price as a labelled fallback when no verified row exists.
 

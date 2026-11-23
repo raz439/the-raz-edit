@@ -119,7 +119,10 @@ async function loadVerifiedPrices(){
  try{
   const {data:rows,error}=await client.from('price_observations').select('product_id,price,currency,checked_at,verification_status').eq('verification_status','verified').order('checked_at',{ascending:false});
   if(error)throw error;
-  for(const row of rows||[])if(!verifiedPrices.has(String(row.product_id)))verifiedPrices.set(String(row.product_id),row);
+  for(const row of rows||[]){
+  const valid=window.razValidateVerifiedObservation(row);
+  if(valid&&!verifiedPrices.has(valid.product_id))verifiedPrices.set(valid.product_id,valid);
+  }
  }catch(error){console.warn('Verified price load failed',error)}
 }
 async function finishBoardLoad(){
@@ -135,9 +138,9 @@ async function load(){
  client=buildClient();
  if(client){client.auth.onAuthStateChange((event)=>{if(event==='PASSWORD_RECOVERY')setTimeout(()=>openLogin('recovery'),0);else if(event==='SIGNED_IN'||event==='SIGNED_OUT')setTimeout(()=>refreshAccount(),0)});}
  await refreshAccount();
- if(client){try{const {data:record,error}=await client.from('board_content').select('content').eq('id',1).maybeSingle();if(error)throw error;if(record?.content){data=normalize(record.content);await mergeCuratedAdditions();finishBoardLoad();return}}catch(e){console.warn('Board database load failed',e)}}
- try{const r=await fetch('data.json?ts='+Date.now());if(r.ok){data=normalize(await r.json());await mergeCuratedAdditions();finishBoardLoad();return}}catch(e){}
- try{const r=await fetch(initial);if(!r.ok)throw Error('Legacy products unavailable');const html=await r.text();const a=html.indexOf('const products=')+15;const b=html.indexOf(';\nconst palette=',a);if(a<15||b<0)throw Error('Unable to read products');const list=JSON.parse(html.slice(a,b));data.products=list.map(p=>Object.assign({},p,{category:inferCategory(p),subcategory:p.type==='סוודר'?'סוודרים':p.type==='קרדיגן'?'קרדיגנים':'',featured:true}));normalize(data);await mergeCuratedAdditions();finishBoardLoad()}catch(e){$('grid').append(element('p','empty','לא ניתן לטעון את הפריטים כרגע. נסי לרענן את העמוד.'));console.error(e)}
+ if(client){try{const {data:record,error}=await client.from('board_content').select('content').eq('id',1).maybeSingle();if(error)throw error;if(record?.content){data=normalize(record.content);await mergeCuratedAdditions();await finishBoardLoad();return}}catch(e){console.warn('Board database load failed',e)}}
+ try{const r=await fetch('data.json?ts='+Date.now());if(r.ok){data=normalize(await r.json());await mergeCuratedAdditions();await finishBoardLoad();return}}catch(e){}
+ try{const r=await fetch(initial);if(!r.ok)throw Error('Legacy products unavailable');const html=await r.text();const a=html.indexOf('const products=')+15;const b=html.indexOf(';\nconst palette=',a);if(a<15||b<0)throw Error('Unable to read products');const list=JSON.parse(html.slice(a,b));data.products=list.map(p=>Object.assign({},p,{category:inferCategory(p),subcategory:p.type==='סוודר'?'סוודרים':p.type==='קרדיגן'?'קרדיגנים':'',featured:true}));normalize(data);await mergeCuratedAdditions();await finishBoardLoad()}catch(e){$('grid').append(element('p','empty','לא ניתן לטעון את הפריטים כרגע. נסי לרענן את העמוד.'));console.error(e)}
 }
 function renderColorPicker(){
  const selected=[...selectedColors].filter(c=>COLOR_ORDER.includes(c));
@@ -176,10 +179,11 @@ function ensurePriceControls(){
  const currency=field('מטבע','price-currency','select'),sort=field('מיון מחיר','price-sort','select'),min=field('מחיר מינימום','price-min','number'),max=field('מחיר מקסימום','price-max','number');
  sort.append(new Option('ללא מיון','default'),new Option('מהנמוך לגבוה','asc'),new Option('מהגבוה לנמוך','desc'));
  currency.append(new Option('כל המטבעות',''));
- currency.onchange=()=>{priceCurrency=currency.value;draw()};
- sort.onchange=()=>{priceSort=sort.value;draw()};
- min.oninput=()=>{priceMin=min.value;draw()};
- max.oninput=()=>{priceMax=max.value;draw()};
+ sort.disabled=true;min.disabled=true;max.disabled=true;
+ currency.onchange=()=>{priceCurrency=currency.value;if(!priceCurrency){priceSort='default';sort.value='default';min.value='';max.value='';priceMin='';priceMax='';sort.disabled=true;min.disabled=true;max.disabled=true}else{sort.disabled=false;min.disabled=false;max.disabled=false}draw()};
+ sort.onchange=()=>{priceSort=priceCurrency?sort.value:'default';draw()};
+ min.oninput=()=>{priceMin=priceCurrency?min.value:'';draw()};
+ max.oninput=()=>{priceMax=priceCurrency?max.value:'';draw()};
  panel.append(host);
 }
 function fallbackPrice(p){
@@ -212,8 +216,9 @@ function draw(){
  const list=$('collections');list.replaceChildren();[['','כל הפריטים'],...data.categories.filter(x=>x!=='Pieces worth sharing'&&(!selectedCategories.size||selectedCategories.has(x))).map(x=>[x,x])].forEach(([value,label])=>{const b=element('button','pill'+(cat===value?' active':''),label);b.onclick=()=>{cat=value;$('type').value='';draw()};list.append(b)});
  const activeCats=cat&&cat!==null?[cat]:(selectedCategories.size?[...selectedCategories]:data.categories);const allSubcats=[...new Set(activeCats.flatMap(c=>data.subcategories[c]||[]))];options('store',unique('store'),'כל החנויות');options('type',allSubcats,'כל תתי־הקטגוריות');
  const q=$('search').value.trim().toLowerCase(),base=cat===null?[]:data.products.filter(p=>(cat?p.category===cat:activeCats.includes(p.category))&&(!$('store').value||p.store===$('store').value)&&(!$('type').value||p.subcategory===$('type').value)&&(!selectedColors.size||(p.colors||[]).some(c=>selectedColors.has(c)))&&(!faveOnly||favorites.has(String(p.id)))&&(p.name+' '+p.store+' '+(p.type||'')+' '+(p.subcategory||'')+' '+(p.colors||[]).join(' ')).toLowerCase().includes(q));
- const items=window.razSortPrices(base.filter(p=>{const value=priceFor(p);if(priceCurrency&&(!value||value.currency!==priceCurrency))return false;if(priceMin&&(!value||value.price<Number(priceMin)))return false;if(priceMax&&(!value||value.price>Number(priceMax)))return false;return true}),priceFor,priceSort);
- const currencies=[...new Set(data.products.map(priceFor).filter(Boolean).map(value=>value.currency))].sort();const currencyNode=$('price-currency'),previous=currencyNode.value;currencyNode.replaceChildren(new Option('כל המטבעות',''),...currencies.map(value=>new Option(value,value)));currencyNode.value=currencies.includes(previous)?previous:'';priceCurrency=currencyNode.value;
+ const filtered=base.filter(p=>{const value=priceFor(p);if(priceCurrency&&(!value||value.currency!==priceCurrency))return false;if(priceCurrency&&priceMin&&(!value||value.price<Number(priceMin)))return false;if(priceCurrency&&priceMax&&(!value||value.price>Number(priceMax)))return false;return true});
+ const items=window.razSortPrices(filtered,priceFor,priceSort,priceCurrency);
+ const currencies=[...new Set(data.products.map(priceFor).filter(Boolean).map(value=>value.currency))].sort();const currencyNode=$('price-currency'),previous=currencyNode.value;currencyNode.replaceChildren(new Option('כל המטבעות',''),...currencies.map(value=>new Option(value,value)));currencyNode.value=currencies.includes(previous)?previous:'';priceCurrency=currencyNode.value; if(!priceCurrency){priceSort='default';$('price-sort').value='default';$('price-min').value='';$('price-max').value='';priceMin='';priceMax=''};$('price-sort').disabled=!Boolean(priceCurrency);$('price-min').disabled=!Boolean(priceCurrency);$('price-max').disabled=!Boolean(priceCurrency);
  $('heading').textContent=cat===null?'בחרי קטגוריה כדי להתחיל':(cat||'כל הפריטים');$('count').textContent=items.length+' / '+data.products.length+' פריטים';const grid=$('grid');grid.replaceChildren();if(!items.length)grid.append(element('p','empty',cat===null?'בחרי קטגוריה למעלה כדי לראות את הפריטים ♡':'אין פריטים בקטגוריה הזאת עדיין ♡'));
  items.forEach(p=>{const card=element('article','product'),photo=element('div','photo');const missing=()=>{photo.querySelector('img')?.remove();if(!photo.querySelector('.missing'))photo.prepend(element('div','missing',p.store+' · לתמונה לחצי על קישור המוצר'))};if(p.img||p.fallbackImg){const img=element('img');img.src=p.img||p.fallbackImg;img.alt=p.name;img.loading='lazy';img.onerror=()=>{if(p.fallbackImg&&img.src!==p.fallbackImg){img.onerror=missing;img.src=p.fallbackImg}else missing()};photo.append(img)}else missing();const heart=element('button','heart'+(favorites.has(String(p.id))?' saved':''),favorites.has(String(p.id))?'♥':'♡');heart.onclick=()=>{const id=String(p.id);favorites.has(id)?favorites.delete(id):favorites.add(id);localStorage.setItem('raz-edit-favorites',JSON.stringify([...favorites]));draw()};heart.setAttribute('aria-label','שמירה במועדפים');photo.append(heart);const link=element('a','buy','לצפייה בפריט');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';const shownPrice=priceText(p),priceNode=element('div','price '+shownPrice.className,shownPrice.text);card.append(photo,element('div','meta',p.store+' · '+(p.type||'')),element('div','name',p.name),priceNode,link);if(currentAdmin){const editButton=element('button','edit-product','עריכת פריט');editButton.type='button';editButton.onclick=()=>{sessionStorage.setItem('raz-edit-edit-item',String(p.id));location.href=location.pathname+'?admin=1'};card.append(editButton)}grid.append(card)});
 }
