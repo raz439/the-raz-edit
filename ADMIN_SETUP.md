@@ -19,6 +19,20 @@ This branch **is not deployed**. The published Netlify site and production branc
 7. Test login, initial import of the existing 30 products, adding category / product and user invitation on the staging branch before merging into `main`.
 8. Merge and trigger ONE production deployment only after testing.
 
+## Phase 1 price monitoring (manual only)
+
+1. Apply `supabase/migrations/20261123_price_observations.sql` after the base schema. It adds append-only observations and public read access only for rows marked `verified`.
+2. Add repository Actions secrets named `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. The service-role key is used only by Actions and must never be placed in frontend files or printed in logs.
+3. Run **Monitor Terminal X prices** manually from the Actions tab. The workflow reads `board_content`, checks only Terminal X URLs, and records verified or failed observations without changing `board_content`.
+4. The workflow is intentionally `workflow_dispatch` only. Do not add a schedule until a real product has been validated end to end.
+5. The frontend reads verified rows from `price_observations`; it keeps the existing catalogue price as a labelled fallback when no verified row exists.
+
+### Phase 1 validation
+
+Use one current Terminal X product whose URL includes its selected `color` query parameter. Confirm that the run summary reports a verified ILS price, the Supabase row has the expected product ID and checked time, and the public board displays the verified value. A failed or ambiguous observation must not replace the previous verified row.
+
+The workflow and migration do not deploy Netlify or publish the frontend. If the frontend changes are later approved, publish them through the existing manual Netlify/GitHub Pages process; do not enable continuous builds.
+
 **Important:** A login form cannot provide real permissions on a static site by itself. Permission enforcement comes from database RLS and the Edge Function.
 
 ## Automatic product details from a pasted shopping link
